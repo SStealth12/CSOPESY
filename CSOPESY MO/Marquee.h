@@ -13,8 +13,8 @@
 #include <windows.h>
 #define CLEAR_SCREEN() system("cls")
 
-static std::chrono::milliseconds MARQUEE_REFRESH_RATE(120);
-static std::chrono::milliseconds INPUT_POLLING_RATE(8);
+static std::chrono::milliseconds MARQUEE_REFRESH_RATE(144);
+static std::chrono::milliseconds INPUT_POLLING_RATE(7);
 
 inline void marqueeConsole() {
     const std::string headerTop = "****************************************";
