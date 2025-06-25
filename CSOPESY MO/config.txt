@@ -1,0 +1,4 @@
+coresAvailable=4
+coresUsed=4
+isEvaluationMode=true
+schedulingAlgorithm=FCFS

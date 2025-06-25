@@ -1,0 +1,52 @@
+Process name: screen_01
+ID: 1
+Logs:
+(06/24/2025 08:24:05AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:06AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:07AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:08AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:09AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:10AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:11AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:12AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:13AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:14AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:15AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:16AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:17AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:18AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:19AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:20AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:21AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:22AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:23AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:24AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:25AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:26AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:27AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:28AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:29AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:30AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:31AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:32AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:33AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:34AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:35AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:36AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:37AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:38AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:39AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:40AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:41AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:42AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:43AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:44AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:45AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:46AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:47AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:48AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:49AM)	Core: 0	Hello world from screen_01!
+(06/24/2025 08:24:50AM)	Core: 0	Hello world from screen_01!
+
+Current instruction line: 46
+Lines of code: 5876

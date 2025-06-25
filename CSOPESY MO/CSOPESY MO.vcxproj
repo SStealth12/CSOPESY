@@ -124,16 +124,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FCFSScheduler.cpp" />
+    <ClCompile Include="globals.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="osloop.cpp" />
     <ClCompile Include="Process.cpp" />
     <ClCompile Include="Screen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FCFSScheduler.h" />
+    <ClInclude Include="globals.h" />
     <ClInclude Include="Marquee.h" />
+    <ClInclude Include="osloop.h" />
     <ClInclude Include="Process.h" />
+    <ClInclude Include="Scheduler.h" />
     <ClInclude Include="Screen.h" />
-    <ClInclude Include="CLIDesigns.h" />
-    <ClInclude Include="Subcommand.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="config.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
