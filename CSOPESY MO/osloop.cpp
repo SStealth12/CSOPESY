@@ -54,53 +54,42 @@ void nvidiasmi(const std::map<int, Process>& processes) {
     std::cout << std::endl;
 }
 
-static std::chrono::seconds creationDelay(int burst) {
-    switch (burst) {
-    case 80:   return std::chrono::seconds(1);
-    case 1000: return std::chrono::seconds(2);
-    case 5876: return std::chrono::seconds(3);
-    default:   return std::chrono::seconds(1); 
-    }
-}
-
 
 void automaticProcessCreation() {
     int createdCount = 0;
+    int cycleCount = 0;
 	int nextId = createdProcesses.empty() ? 1 : (createdProcesses.back()->getId() + 1);
-    int previousBurst = 0;
 
     while (automaticCreationEnabled) {
+        cycleCount++;
 
-        std::chrono::seconds delay = previousBurst
-            ? creationDelay(previousBurst)
-            : std::chrono::seconds(1);
-        std::this_thread::sleep_for(delay);
+        
+        if (cycleCount % batchProcessFreq == 0) {
+            std::ostringstream nameStream;
 
-        std::ostringstream nameStream;
+            nameStream << "screen_" << std::setw(2) << std::setfill('0') << nextId;
+            std::string name = nameStream.str();
 
-		nameStream << "screen_" << std::setw(2) << std::setfill('0') << nextId;
-		std::string name = nameStream.str();
+            int totalBurst = minInstructions + (rand() % (maxInstructions - minInstructions + 1));
 
-        int burstIndex = rand() % BURST_OPTIONS.size();
-        int totalBurst = BURST_OPTIONS[burstIndex];
+            auto screen = std::make_shared<Screen>(nextId, name, totalBurst);
 
-        auto screen = std::make_shared<Screen>(nextId, name, totalBurst);
+            {
+                std::lock_guard<std::mutex> guard(createdMutex);
+                createdProcesses.push_back(screen);
+            }
 
-        {
-            std::lock_guard<std::mutex> guard(createdMutex);
-            createdProcesses.push_back(screen);
-		}
+            if (globalScheduler) {
+                screen->setStatus("READY");
+                globalScheduler->addProcess(screen);
+            }
 
-        if (globalScheduler) {
-            screen->setStatus("READY");
-            globalScheduler->addProcess(screen);
+            // std::cout << "Screen '" << name << "' created (Burst: " << totalBurst << ").\n";
+            nextId++;
+            createdCount++;
         }
-
-        previousBurst = totalBurst;
-
-        // std::cout << "Screen '" << name << "' created (Burst: " << totalBurst << ").\n";
-		nextId++;
-        createdCount++;
+		// Sleep given delaysPerExec config parameter
+        std::this_thread::sleep_for(std::chrono::milliseconds(delaysPerExec));
 
         if (isEvaluationMode && createdCount >= 10) {
             automaticCreationEnabled = false;
@@ -122,15 +111,13 @@ void screenCommand(const std::string& dashOpt, const std::string& name) {
                 break;
             }
         }
-
         if (exists) {
             std::cout << "Error: screen '" << name << "' already exists.\n";
         }
         else {
 			int nextId = createdProcesses.empty() ? 1 : (createdProcesses.back()->getId() + 1);
 
-			int burstIndex = rand() % BURST_OPTIONS.size();
-			int totalBurst = BURST_OPTIONS[burstIndex];
+            int totalBurst = minInstructions + (rand() % (maxInstructions - minInstructions + 1));
 
 			auto screen = std::make_shared<Screen>(nextId, name, totalBurst);
 			createdProcesses.push_back(screen);
@@ -153,6 +140,9 @@ void screenCommand(const std::string& dashOpt, const std::string& name) {
         if (!targetScreen) {
             std::cout << "Error: no screen '" << name << "'\n";
         }
+        else if (targetScreen->isFinished()) {
+            std::cout << "Process " << name << " not found.\n";
+        }
         else {
             targetScreen->draw();
 
@@ -173,6 +163,15 @@ void screenCommand(const std::string& dashOpt, const std::string& name) {
                 else if (sub == "report-util") {
                     targetScreen->exportLogs();
                     std::cout << "Report generated as: " << targetScreen->getName() << ".txt\n";
+                }
+                else if (sub == "execute") {
+                    if (!targetScreen->isFinished()) {
+						targetScreen->executeInstruction(-1); // -1 for manual execution
+                        std::cout << "Executed one instuction\n";
+                    }
+                    else {
+                        std::cout << "Process has finished execution\n";
+                    }
                 }
                 else {
                     std::cout << "Unknown sub-command.\n";
@@ -215,10 +214,21 @@ void bootstrap(const std::string& configFile) {
                 value.erase(0, value.find_first_not_of(" \t"));
                 value.erase(value.find_last_not_of(" \t") + 1);
 
-                if (key == "coresAvailable") coresAvailable = std::stoi(value);
-                else if (key == "coresUsed") coresUsed = std::stoi(value);
-                else if (key == "isEvaluationMode") isEvaluationMode = (value == "true");
-                else if (key == "schedulingAlgorithm") schedulingAlgorithm = value;
+                if (key == "num-cpu") coresUsed = std::stoi(value);
+                else if (key == "scheduler") schedulingAlgorithm = value;
+                else if (key == "quantum-cycles") quantumCycles = std::stoi(value);
+                else if (key == "batch-process-freq") batchProcessFreq = std::stoi(value);
+                else if (key == "min-ins") minInstructions = std::stoi(value);
+                else if (key == "max-ins") maxInstructions = std::stoi(value);
+                else if (key == "delay-per-exec") delaysPerExec = std::stoi(value);
+                else if (key == "is-evaluation-mode") {
+                    if (value == "true") {
+                        isEvaluationMode = true;
+                    }
+                    else {
+						isEvaluationMode = false;
+                    }
+                }
             }
         }
     }
@@ -283,15 +293,21 @@ void OSLoop() {
         else if (command == "initialize") {
             bootstrap();
             std::cout << "System initialized with configuration:\n";
-            std::cout << "  Cores Available: " << coresAvailable << "\n";
-            std::cout << "  Cores Used: " << coresUsed << "\n";
+            std::cout << "  Number of Cores: " << coresUsed << "\n";
             std::cout << "  Scheduling Algorithm: " << schedulingAlgorithm << "\n";
+            if (schedulingAlgorithm == "RR") {
+				std::cout << "  Quantum Cycles: " << quantumCycles << "\n";
+            }
+			std::cout << "  Batch Process Frequency: " << batchProcessFreq << "\n";
+			std::cout << "  Minimum Instructions: " << minInstructions << "\n";
+			std::cout << "  Maximum Instructions: " << maxInstructions << "\n";
+			std::cout << "  Delays per Execution: " << delaysPerExec << "\n";
             std::cout << "  Evaluation Mode: " << (isEvaluationMode ? "true" : "false") << "\n";
 
             // Initialize scheduler based on configuration
             if (!globalScheduler) {
                 if (schedulingAlgorithm == "FCFS") {
-                    globalScheduler = std::make_unique<FCFSScheduler>(coresUsed);
+                    globalScheduler = std::make_unique<FCFSScheduler>(coresUsed, delaysPerExec);
                     std::cout << "FCFS scheduler initialized\n";
                 }
                 // Add RR Scheduler here

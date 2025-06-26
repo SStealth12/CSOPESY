@@ -8,10 +8,11 @@
 
 class FCFSScheduler : public Scheduler {
 private:
+	int delaysPerExec_;
 	std::queue<std::shared_ptr<Screen>> readyQueue;
 	std::vector<std::shared_ptr<Screen>> finishedProcesses;
 public:
-	FCFSScheduler(int cores = 4);
+	FCFSScheduler(int cores, int delaysPerExec);
 	virtual ~FCFSScheduler();
 
 	void addProcess(std::shared_ptr<Screen> process) override;

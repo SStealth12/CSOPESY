@@ -9,9 +9,6 @@ std::thread automaticCreationThread;
 std::mutex creationMutex;
 std::condition_variable creationCV;
 
-// Burst time options
-const std::vector<int> BURST_OPTIONS = { 80, 1000, 5876 };
-
 // Initialize process names
 std::vector<std::string> PROCESS_NAMES = {
     "C:\\Program Files\\NVIDIA Corporation\\NVIDIA GeForce Experience\\NVIDIA app\\CEF\\NVIDIA Overlay.exe",
@@ -40,10 +37,14 @@ std::vector<std::shared_ptr<Screen>> finishedProcesses;
 std::unique_ptr<Scheduler> globalScheduler;
 
 // Configs
-int coresAvailable = 0;
 int coresUsed = 0;
 bool isEvaluationMode = false;
 std::string schedulingAlgorithm = "FCFS"; 
+int minInstructions = 0;
+int maxInstructions = 0;
+int quantumCycles = 0;
+int batchProcessFreq = 0;
+int delaysPerExec = 0;
 
 // Mutexes
 std::mutex createdMutex;

@@ -5,9 +5,10 @@
 #include <chrono>
 #include <iomanip>
 
-FCFSScheduler::FCFSScheduler(int cores) : Scheduler(cores) {
-	
+FCFSScheduler::FCFSScheduler(int cores, int delaysPerExec)
+	: Scheduler(cores), delaysPerExec_(delaysPerExec) {
 }
+
 
 FCFSScheduler::~FCFSScheduler() {
 	stop();
@@ -29,16 +30,10 @@ void FCFSScheduler::cpuWorker(int coreId) {
 		if (process) {
 			while (process->getCurrentBurst() < process->getTotalBurst() && 
 				cpuCores[coreId].running) {
-				process->incrementCurrentBurst();
-
-				std::string timeStr = getCurrentTimeString();
-				std::string entry = "(" + timeStr + ")\tCore: " +
-					std::to_string(coreId) + "\t" +
-					"Hello world from " + process->getName() + "!";
-
-				process->addLogEntry(coreId, entry);
-
-				std::this_thread::sleep_for(std::chrono::milliseconds(1));
+				process->executeInstruction(coreId);
+				std::this_thread::sleep_for(
+					std::chrono::milliseconds(delaysPerExec_)
+				);
 			}
 
 			{
@@ -71,7 +66,7 @@ void FCFSScheduler::scheduler() {
 		}
 
 		lock.unlock();
-		std::this_thread::sleep_for(std::chrono::milliseconds(50));
+		std::this_thread::sleep_for(std::chrono::milliseconds(delaysPerExec_));
 	}
 }
 
@@ -87,6 +82,9 @@ void FCFSScheduler::printStatus() {
 	std::lock_guard<std::mutex> queueLock(queueMutex);
 	std::lock_guard<std::mutex> finishedLock(finishedMutex);
 
+	std::cout << "CPU utilization: 100%\n";
+	std::cout << "Cores used: " << cpuCores.size() << "\n";
+	std::cout << "Cores available: 0\n";
 	std::cout << "--------------------------------------\n";
 	std::cout << "\nRunning processes:\n";
 	for (int i = 0; i < cpuCores.size(); i++) {

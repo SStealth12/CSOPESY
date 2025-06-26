@@ -24,8 +24,6 @@ extern std::thread automaticCreationThread;
 extern std::mutex creationMutex;
 extern std::condition_variable creationCV;
 
-// Burst time options
-extern const std::vector<int> BURST_OPTIONS;
 
 // Process (for NVIDIA-SMI)
 extern std::vector<std::string> PROCESS_NAMES;
@@ -40,10 +38,14 @@ extern std::vector<std::shared_ptr<Screen>> finishedProcesses;
 extern std::unique_ptr<Scheduler> globalScheduler;
 
 // Program configuration
-extern int coresAvailable;
 extern int coresUsed;
 extern bool isEvaluationMode;
 extern std::string schedulingAlgorithm;
+extern int minInstructions;
+extern int maxInstructions;
+extern int quantumCycles;
+extern int batchProcessFreq;
+extern int delaysPerExec;
 
 // Mutexes for thread safety
 extern std::mutex createdMutex;
