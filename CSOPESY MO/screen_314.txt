@@ -1,0 +1,26 @@
+Process name: screen_314
+ID: 314
+Logs:
+(06/26/2025 09:46:49PM)	Core: 2	PRINT: Hello world from screen_314!
+(06/26/2025 09:46:49PM)	Core: 2	SUBTRACT: k = 69 - 94
+(06/26/2025 09:46:49PM)	Core: 2	DECLARE: f = 98
+(06/26/2025 09:46:49PM)	Core: 2	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 2	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 2	SUBTRACT: v = 28 - 16
+(06/26/2025 09:46:49PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 2	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:49PM)	Core: 2	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 2	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 2	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:49PM)	Core: 2	DECLARE: c = 74
+(06/26/2025 09:46:49PM)	Core: 2	DECLARE: m = 75
+(06/26/2025 09:46:49PM)	Core: 2	DECLARE: x = 8
+
+Current instruction line: 12
+Lines of code: 12
+Finished!

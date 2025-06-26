@@ -1,0 +1,26 @@
+Process name: screen_39
+ID: 39
+Logs:
+(06/26/2025 09:47:40PM)	Core: 2	SUBTRACT: r = 42 - 40
+(06/26/2025 09:47:40PM)	Core: 2	FOR: Loop started (5 iterations)
+(06/26/2025 09:47:40PM)	Core: 2	FOR: Loop iteration 2
+(06/26/2025 09:47:40PM)	Core: 2	FOR: Loop iteration 3
+(06/26/2025 09:47:40PM)	Core: 2	FOR: Loop iteration 4
+(06/26/2025 09:47:40PM)	Core: 2	FOR: Loop iteration 5
+(06/26/2025 09:47:40PM)	Core: 2	FOR: Loop finished
+(06/26/2025 09:47:40PM)	Core: 2	DECLARE: y = 68
+(06/26/2025 09:47:40PM)	Core: 2	ERROR: ENDLOOP without FOR
+(06/26/2025 09:47:40PM)	Core: 2	ADD: b = 29 + 89
+(06/26/2025 09:47:40PM)	Core: 2	SLEEP: 2 ticks remaining
+(06/26/2025 09:47:40PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:40PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:40PM)	Core: 2	SUBTRACT: e = 75 - 64
+(06/26/2025 09:47:40PM)	Core: 2	FOR: Loop started (5 iterations)
+(06/26/2025 09:47:40PM)	Core: 2	DECLARE: g = 27
+(06/26/2025 09:47:40PM)	Core: 2	SUBTRACT: k = 52 - 26
+(06/26/2025 09:47:40PM)	Core: 2	FOR: Loop started (2 iterations)
+(06/26/2025 09:47:40PM)	Core: 2	SUBTRACT: p = 56 - 93
+
+Current instruction line: 17
+Lines of code: 17
+Finished!

@@ -1,0 +1,28 @@
+Process name: screen_230
+ID: 230
+Logs:
+(06/26/2025 09:46:42PM)	Core: 0	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:42PM)	Core: 0	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:42PM)	Core: 0	PRINT: Hello world from screen_230!
+(06/26/2025 09:46:42PM)	Core: 0	ADD: g = 65 + 39
+(06/26/2025 09:46:42PM)	Core: 0	SUBTRACT: v = 28 - 81
+(06/26/2025 09:46:42PM)	Core: 0	DECLARE: x = 60
+(06/26/2025 09:46:42PM)	Core: 0	SLEEP: 4 ticks remaining
+(06/26/2025 09:46:42PM)	Core: 0	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:42PM)	Core: 0	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:42PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:42PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:42PM)	Core: 0	SUBTRACT: m = 83 - 69
+(06/26/2025 09:46:42PM)	Core: 0	SUBTRACT: n = 19 - 5
+(06/26/2025 09:46:42PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:42PM)	Core: 0	DECLARE: t = 19
+(06/26/2025 09:46:42PM)	Core: 0	DECLARE: i = 13
+(06/26/2025 09:46:42PM)	Core: 0	PRINT: Hello world from screen_230!
+(06/26/2025 09:46:42PM)	Core: 0	ADD: o = 28 + 45
+(06/26/2025 09:46:42PM)	Core: 0	SUBTRACT: e = 51 - 81
+(06/26/2025 09:46:42PM)	Core: 0	ADD: a = 67 + 17
+(06/26/2025 09:46:42PM)	Core: 0	ADD: c = 58 + 50
+
+Current instruction line: 17
+Lines of code: 17
+Finished!

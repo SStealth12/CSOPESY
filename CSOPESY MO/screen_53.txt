@@ -1,0 +1,20 @@
+Process name: screen_53
+ID: 53
+Logs:
+(06/26/2025 09:47:41PM)	Core: 3	ADD: r = 6 + 70
+(06/26/2025 09:47:41PM)	Core: 3	REDECLARE: r
+(06/26/2025 09:47:41PM)	Core: 3	FOR: Loop started (4 iterations)
+(06/26/2025 09:47:41PM)	Core: 3	PRINT: Hello world from screen_53!
+(06/26/2025 09:47:41PM)	Core: 3	ADD: t = 10 + 93
+(06/26/2025 09:47:41PM)	Core: 3	SUBTRACT: r = 90 - 99
+(06/26/2025 09:47:41PM)	Core: 3	DECLARE: j = 67
+(06/26/2025 09:47:41PM)	Core: 3	SUBTRACT: d = 3 - 20
+(06/26/2025 09:47:41PM)	Core: 3	FOR: Loop started (4 iterations)
+(06/26/2025 09:47:41PM)	Core: 3	SUBTRACT: i = 90 - 48
+(06/26/2025 09:47:42PM)	Core: 3	FOR: Loop iteration 2
+(06/26/2025 09:47:42PM)	Core: 3	SUBTRACT: i = 90 - 48
+(06/26/2025 09:47:42PM)	Core: 3	FOR: Loop iteration 3
+
+Current instruction line: 13
+Lines of code: 13
+Finished!

@@ -1,0 +1,27 @@
+Process name: screen_317
+ID: 317
+Logs:
+(06/26/2025 09:46:49PM)	Core: 3	ADD: v = 35 + 15
+(06/26/2025 09:46:49PM)	Core: 3	FOR: Loop started (2 iterations)
+(06/26/2025 09:46:49PM)	Core: 3	PRINT: Hello world from screen_317!
+(06/26/2025 09:46:49PM)	Core: 3	FOR: Loop started (2 iterations)
+(06/26/2025 09:46:49PM)	Core: 3	PRINT: Hello world from screen_317!
+(06/26/2025 09:46:49PM)	Core: 3	DECLARE: l = 65
+(06/26/2025 09:46:49PM)	Core: 3	FOR: Loop started (2 iterations)
+(06/26/2025 09:46:49PM)	Core: 3	SUBTRACT: s = 28 - 43
+(06/26/2025 09:46:49PM)	Core: 3	FOR: Loop iteration 2
+(06/26/2025 09:46:49PM)	Core: 3	SUBTRACT: s = 28 - 43
+(06/26/2025 09:46:49PM)	Core: 3	FOR: Loop finished
+(06/26/2025 09:46:49PM)	Core: 3	FOR: Loop iteration 2
+(06/26/2025 09:46:49PM)	Core: 3	PRINT: Hello world from screen_317!
+(06/26/2025 09:46:49PM)	Core: 3	REDECLARE: l
+(06/26/2025 09:46:49PM)	Core: 3	FOR: Loop started (2 iterations)
+(06/26/2025 09:46:49PM)	Core: 3	SUBTRACT: s = 28 - 43
+(06/26/2025 09:46:49PM)	Core: 3	FOR: Loop iteration 2
+(06/26/2025 09:46:49PM)	Core: 3	SUBTRACT: s = 28 - 43
+(06/26/2025 09:46:49PM)	Core: 3	FOR: Loop finished
+(06/26/2025 09:46:49PM)	Core: 3	FOR: Loop finished
+
+Current instruction line: 20
+Lines of code: 20
+Finished!

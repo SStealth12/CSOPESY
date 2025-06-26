@@ -1,0 +1,27 @@
+Process name: screen_168
+ID: 168
+Logs:
+(06/26/2025 09:46:36PM)	Core: 3	PRINT: Hello world from screen_168!
+(06/26/2025 09:46:36PM)	Core: 3	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:36PM)	Core: 3	FOR: Loop iteration 2
+(06/26/2025 09:46:36PM)	Core: 3	FOR: Loop iteration 3
+(06/26/2025 09:46:36PM)	Core: 3	FOR: Loop iteration 4
+(06/26/2025 09:46:36PM)	Core: 3	FOR: Loop finished
+(06/26/2025 09:46:36PM)	Core: 3	SUBTRACT: n = 38 - 94
+(06/26/2025 09:46:36PM)	Core: 3	ERROR: ENDLOOP without FOR
+(06/26/2025 09:46:36PM)	Core: 3	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:36PM)	Core: 3	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:36PM)	Core: 3	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:36PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:36PM)	Core: 3	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:36PM)	Core: 3	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:36PM)	Core: 3	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:36PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:36PM)	Core: 3	SUBTRACT: i = 3 - 71
+(06/26/2025 09:46:36PM)	Core: 3	DECLARE: a = 8
+(06/26/2025 09:46:36PM)	Core: 3	SUBTRACT: b = 87 - 26
+(06/26/2025 09:46:36PM)	Core: 3	DECLARE: u = 74
+
+Current instruction line: 14
+Lines of code: 14
+Finished!

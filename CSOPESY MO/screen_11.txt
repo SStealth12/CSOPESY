@@ -1,0 +1,32 @@
+Process name: screen_11
+ID: 11
+Logs:
+(06/26/2025 09:47:38PM)	Core: 2	PRINT: Hello world from screen_11!
+(06/26/2025 09:47:38PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:38PM)	Core: 2	SUBTRACT: c = 46 - 80
+(06/26/2025 09:47:38PM)	Core: 2	SUBTRACT: b = 4 - 3
+(06/26/2025 09:47:38PM)	Core: 2	PRINT: Hello world from screen_11!
+(06/26/2025 09:47:38PM)	Core: 2	SLEEP: 3 ticks remaining
+(06/26/2025 09:47:38PM)	Core: 2	SLEEP: 2 ticks remaining
+(06/26/2025 09:47:38PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:38PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:38PM)	Core: 2	PRINT: Hello world from screen_11!
+(06/26/2025 09:47:38PM)	Core: 2	ADD: y = 86 + 62
+(06/26/2025 09:47:38PM)	Core: 2	SLEEP: 4 ticks remaining
+(06/26/2025 09:47:38PM)	Core: 2	SLEEP: 3 ticks remaining
+(06/26/2025 09:47:38PM)	Core: 2	SLEEP: 2 ticks remaining
+(06/26/2025 09:47:38PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:38PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:38PM)	Core: 2	PRINT: Hello world from screen_11!
+(06/26/2025 09:47:38PM)	Core: 2	ADD: g = 9 + 99
+(06/26/2025 09:47:38PM)	Core: 2	PRINT: Hello world from screen_11!
+(06/26/2025 09:47:38PM)	Core: 2	DECLARE: l = 42
+(06/26/2025 09:47:38PM)	Core: 2	PRINT: Hello world from screen_11!
+(06/26/2025 09:47:38PM)	Core: 2	ADD: w = 59 + 30
+(06/26/2025 09:47:38PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:38PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:38PM)	Core: 2	PRINT: Hello world from screen_11!
+
+Current instruction line: 17
+Lines of code: 17
+Finished!

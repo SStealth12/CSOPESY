@@ -33,6 +33,9 @@
     <ClCompile Include="osloop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RRScheduler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Screen.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="osloop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RRScheduler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

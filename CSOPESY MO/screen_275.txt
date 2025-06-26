@@ -1,0 +1,25 @@
+Process name: screen_275
+ID: 275
+Logs:
+(06/26/2025 09:46:46PM)	Core: 0	DECLARE: e = 27
+(06/26/2025 09:46:46PM)	Core: 0	DECLARE: c = 35
+(06/26/2025 09:46:46PM)	Core: 0	PRINT: Hello world from screen_275!
+(06/26/2025 09:46:46PM)	Core: 0	PRINT: Hello world from screen_275!
+(06/26/2025 09:46:46PM)	Core: 0	PRINT: Hello world from screen_275!
+(06/26/2025 09:46:46PM)	Core: 0	ADD: t = 89 + 66
+(06/26/2025 09:46:46PM)	Core: 0	PRINT: Hello world from screen_275!
+(06/26/2025 09:46:46PM)	Core: 0	DECLARE: g = 34
+(06/26/2025 09:46:46PM)	Core: 0	PRINT: Hello world from screen_275!
+(06/26/2025 09:46:46PM)	Core: 0	PRINT: Hello world from screen_275!
+(06/26/2025 09:46:46PM)	Core: 0	PRINT: Hello world from screen_275!
+(06/26/2025 09:46:46PM)	Core: 0	SLEEP: 4 ticks remaining
+(06/26/2025 09:46:46PM)	Core: 0	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:46PM)	Core: 0	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:46PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:46PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:46PM)	Core: 0	DECLARE: m = 38
+(06/26/2025 09:46:46PM)	Core: 0	PRINT: Hello world from screen_275!
+
+Current instruction line: 14
+Lines of code: 14
+Finished!

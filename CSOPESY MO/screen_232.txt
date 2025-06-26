@@ -1,0 +1,19 @@
+Process name: screen_232
+ID: 232
+Logs:
+(06/26/2025 09:46:42PM)	Core: 3	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:42PM)	Core: 3	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:42PM)	Core: 3	SUBTRACT: a = 58 - 2
+(06/26/2025 09:46:42PM)	Core: 3	REDECLARE: a
+(06/26/2025 09:46:42PM)	Core: 3	ADD: s = 44 + 63
+(06/26/2025 09:46:42PM)	Core: 3	DECLARE: r = 76
+(06/26/2025 09:46:42PM)	Core: 3	FOR: Loop iteration 2
+(06/26/2025 09:46:42PM)	Core: 3	SUBTRACT: a = 58 - 2
+(06/26/2025 09:46:42PM)	Core: 3	REDECLARE: a
+(06/26/2025 09:46:42PM)	Core: 3	ADD: s = 44 + 63
+(06/26/2025 09:46:42PM)	Core: 3	REDECLARE: r
+(06/26/2025 09:46:42PM)	Core: 3	FOR: Loop iteration 3
+
+Current instruction line: 12
+Lines of code: 12
+Finished!

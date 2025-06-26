@@ -1,0 +1,19 @@
+Process name: screen_219
+ID: 219
+Logs:
+(06/26/2025 09:46:41PM)	Core: 3	ADD: i = 12 + 28
+(06/26/2025 09:46:41PM)	Core: 3	PRINT: Hello world from screen_219!
+(06/26/2025 09:46:41PM)	Core: 3	SUBTRACT: b = 27 - 59
+(06/26/2025 09:46:41PM)	Core: 3	ADD: j = 55 + 40
+(06/26/2025 09:46:41PM)	Core: 3	SUBTRACT: w = 85 - 82
+(06/26/2025 09:46:41PM)	Core: 3	PRINT: Hello world from screen_219!
+(06/26/2025 09:46:41PM)	Core: 3	PRINT: Hello world from screen_219!
+(06/26/2025 09:46:41PM)	Core: 3	DECLARE: p = 85
+(06/26/2025 09:46:41PM)	Core: 3	ADD: y = 69 + 35
+(06/26/2025 09:46:41PM)	Core: 3	PRINT: Hello world from screen_219!
+(06/26/2025 09:46:41PM)	Core: 3	DECLARE: e = 67
+(06/26/2025 09:46:41PM)	Core: 3	PRINT: Hello world from screen_219!
+
+Current instruction line: 12
+Lines of code: 12
+Finished!

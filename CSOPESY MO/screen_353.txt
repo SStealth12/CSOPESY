@@ -1,0 +1,26 @@
+Process name: screen_353
+ID: 353
+Logs:
+(06/26/2025 09:46:52PM)	Core: 3	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:52PM)	Core: 3	SUBTRACT: r = 43 - 72
+(06/26/2025 09:46:52PM)	Core: 3	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:52PM)	Core: 3	ADD: j = 77 + 7
+(06/26/2025 09:46:52PM)	Core: 3	PRINT: Hello world from screen_353!
+(06/26/2025 09:46:52PM)	Core: 3	SUBTRACT: f = 63 - 26
+(06/26/2025 09:46:52PM)	Core: 3	PRINT: Hello world from screen_353!
+(06/26/2025 09:46:52PM)	Core: 3	PRINT: Hello world from screen_353!
+(06/26/2025 09:46:52PM)	Core: 3	SUBTRACT: w = 73 - 58
+(06/26/2025 09:46:52PM)	Core: 3	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:52PM)	Core: 3	SUBTRACT: l = 21 - 7
+(06/26/2025 09:46:52PM)	Core: 3	DECLARE: v = 69
+(06/26/2025 09:46:52PM)	Core: 3	DECLARE: n = 51
+(06/26/2025 09:46:52PM)	Core: 3	SLEEP: 4 ticks remaining
+(06/26/2025 09:46:52PM)	Core: 3	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:53PM)	Core: 3	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:53PM)	Core: 3	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:53PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:53PM)	Core: 3	SLEEP: 4 ticks remaining
+(06/26/2025 09:46:53PM)	Core: 3	SLEEP: 3 ticks remaining
+
+Current instruction line: 15
+Lines of code: 17

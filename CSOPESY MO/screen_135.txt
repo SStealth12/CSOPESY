@@ -1,0 +1,27 @@
+Process name: screen_135
+ID: 135
+Logs:
+(06/26/2025 09:47:48PM)	Core: 2	PRINT: Hello world from screen_135!
+(06/26/2025 09:47:48PM)	Core: 2	DECLARE: i = 49
+(06/26/2025 09:47:48PM)	Core: 2	ADD: p = 25 + 12
+(06/26/2025 09:47:48PM)	Core: 2	DECLARE: e = 75
+(06/26/2025 09:47:48PM)	Core: 2	ADD: a = 96 + 86
+(06/26/2025 09:47:48PM)	Core: 2	FOR: Loop started (3 iterations)
+(06/26/2025 09:47:48PM)	Core: 2	PRINT: Hello world from screen_135!
+(06/26/2025 09:47:48PM)	Core: 2	SUBTRACT: n = 15 - 74
+(06/26/2025 09:47:48PM)	Core: 2	SLEEP: 3 ticks remaining
+(06/26/2025 09:47:48PM)	Core: 2	SLEEP: 2 ticks remaining
+(06/26/2025 09:47:48PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:48PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:48PM)	Core: 2	SUBTRACT: c = 9 - 78
+(06/26/2025 09:47:48PM)	Core: 2	DECLARE: u = 55
+(06/26/2025 09:47:48PM)	Core: 2	PRINT: Hello world from screen_135!
+(06/26/2025 09:47:48PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:48PM)	Core: 2	DECLARE: y = 53
+(06/26/2025 09:47:48PM)	Core: 2	REDECLARE: a
+(06/26/2025 09:47:48PM)	Core: 2	FOR: Loop iteration 2
+(06/26/2025 09:47:48PM)	Core: 2	PRINT: Hello world from screen_135!
+
+Current instruction line: 17
+Lines of code: 17
+Finished!

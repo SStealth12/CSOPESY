@@ -1,0 +1,30 @@
+Process name: screen_312
+ID: 312
+Logs:
+(06/26/2025 09:46:49PM)	Core: 0	ADD: e = 36 + 66
+(06/26/2025 09:46:49PM)	Core: 0	SUBTRACT: w = 73 - 37
+(06/26/2025 09:46:49PM)	Core: 0	DECLARE: q = 8
+(06/26/2025 09:46:49PM)	Core: 0	PRINT: Hello world from screen_312!
+(06/26/2025 09:46:49PM)	Core: 0	PRINT: Hello world from screen_312!
+(06/26/2025 09:46:49PM)	Core: 0	PRINT: Hello world from screen_312!
+(06/26/2025 09:46:49PM)	Core: 0	ADD: i = 42 + 68
+(06/26/2025 09:46:49PM)	Core: 0	DECLARE: b = 0
+(06/26/2025 09:46:49PM)	Core: 0	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:49PM)	Core: 0	PRINT: Hello world from screen_312!
+(06/26/2025 09:46:49PM)	Core: 0	ADD: w = 15 + 16
+(06/26/2025 09:46:49PM)	Core: 0	PRINT: Hello world from screen_312!
+(06/26/2025 09:46:49PM)	Core: 0	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:49PM)	Core: 0	ADD: p = 13 + 83
+(06/26/2025 09:46:49PM)	Core: 0	ADD: e = 47 + 32
+(06/26/2025 09:46:49PM)	Core: 0	ADD: f = 15 + 63
+(06/26/2025 09:46:49PM)	Core: 0	SLEEP: 4 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 0	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 0	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 0	ADD: n = 54 + 79
+(06/26/2025 09:46:49PM)	Core: 0	DECLARE: y = 84
+
+Current instruction line: 19
+Lines of code: 19
+Finished!

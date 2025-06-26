@@ -19,6 +19,7 @@
 #include "Screen.h"        
 #include "Scheduler.h"     
 #include "FCFSScheduler.h" 
+#include "RRScheduler.h"
 #include "globals.h"   
 
 #ifdef _WIN32

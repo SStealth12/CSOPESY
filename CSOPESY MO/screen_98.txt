@@ -1,0 +1,20 @@
+Process name: screen_98
+ID: 98
+Logs:
+(06/26/2025 09:47:45PM)	Core: 3	PRINT: Hello world from screen_98!
+(06/26/2025 09:47:45PM)	Core: 3	SUBTRACT: m = 42 - 14
+(06/26/2025 09:47:45PM)	Core: 3	PRINT: Hello world from screen_98!
+(06/26/2025 09:47:45PM)	Core: 3	FOR: Loop started (3 iterations)
+(06/26/2025 09:47:45PM)	Core: 3	PRINT: Hello world from screen_98!
+(06/26/2025 09:47:45PM)	Core: 3	PRINT: Hello world from screen_98!
+(06/26/2025 09:47:45PM)	Core: 3	PRINT: Hello world from screen_98!
+(06/26/2025 09:47:45PM)	Core: 3	ADD: g = 65 + 59
+(06/26/2025 09:47:45PM)	Core: 3	SUBTRACT: d = 50 - 14
+(06/26/2025 09:47:45PM)	Core: 3	FOR: Loop started (4 iterations)
+(06/26/2025 09:47:45PM)	Core: 3	ADD: r = 19 + 11
+(06/26/2025 09:47:45PM)	Core: 3	FOR: Loop started (3 iterations)
+(06/26/2025 09:47:45PM)	Core: 3	FOR: Loop started (3 iterations)
+
+Current instruction line: 13
+Lines of code: 13
+Finished!

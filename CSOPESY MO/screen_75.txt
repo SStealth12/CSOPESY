@@ -1,0 +1,22 @@
+Process name: screen_75
+ID: 75
+Logs:
+(06/26/2025 09:47:43PM)	Core: 2	DECLARE: w = 75
+(06/26/2025 09:47:43PM)	Core: 2	FOR: Loop started (4 iterations)
+(06/26/2025 09:47:43PM)	Core: 2	FOR: Loop started (5 iterations)
+(06/26/2025 09:47:43PM)	Core: 2	FOR: Loop started (2 iterations)
+(06/26/2025 09:47:43PM)	Core: 2	FOR: Loop started (4 iterations)
+(06/26/2025 09:47:43PM)	Core: 2	DECLARE: p = 90
+(06/26/2025 09:47:43PM)	Core: 2	SUBTRACT: z = 71 - 24
+(06/26/2025 09:47:43PM)	Core: 2	SUBTRACT: i = 19 - 52
+(06/26/2025 09:47:43PM)	Core: 2	PRINT: Hello world from screen_75!
+(06/26/2025 09:47:43PM)	Core: 2	FOR: Loop iteration 2
+(06/26/2025 09:47:43PM)	Core: 2	REDECLARE: p
+(06/26/2025 09:47:43PM)	Core: 2	SUBTRACT: z = 71 - 24
+(06/26/2025 09:47:43PM)	Core: 2	SUBTRACT: i = 19 - 52
+(06/26/2025 09:47:43PM)	Core: 2	PRINT: Hello world from screen_75!
+(06/26/2025 09:47:43PM)	Core: 2	FOR: Loop iteration 3
+
+Current instruction line: 15
+Lines of code: 15
+Finished!

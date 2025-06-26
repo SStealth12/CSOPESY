@@ -1,0 +1,20 @@
+Process name: screen_48
+ID: 48
+Logs:
+(06/26/2025 09:47:41PM)	Core: 0	ADD: d = 51 + 97
+(06/26/2025 09:47:41PM)	Core: 0	ADD: d = 12 + 16
+(06/26/2025 09:47:41PM)	Core: 0	DECLARE: z = 71
+(06/26/2025 09:47:41PM)	Core: 0	SUBTRACT: r = 2 - 93
+(06/26/2025 09:47:41PM)	Core: 0	SLEEP: 4 ticks remaining
+(06/26/2025 09:47:41PM)	Core: 0	SLEEP: 3 ticks remaining
+(06/26/2025 09:47:41PM)	Core: 0	SLEEP: 2 ticks remaining
+(06/26/2025 09:47:41PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:41PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:41PM)	Core: 0	PRINT: Hello world from screen_48!
+(06/26/2025 09:47:41PM)	Core: 0	FOR: Loop started (5 iterations)
+(06/26/2025 09:47:41PM)	Core: 0	ADD: k = 12 + 68
+(06/26/2025 09:47:41PM)	Core: 0	PRINT: Hello world from screen_48!
+
+Current instruction line: 10
+Lines of code: 10
+Finished!

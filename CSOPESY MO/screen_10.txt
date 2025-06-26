@@ -1,0 +1,19 @@
+Process name: screen_10
+ID: 10
+Logs:
+(06/26/2025 10:06:45PM)	Core: 1	PRINT: Hello world from screen_10!
+(06/26/2025 10:06:45PM)	Core: 1	PRINT: Hello world from screen_10!
+(06/26/2025 10:06:45PM)	Core: 1	ADD: i = 39 + 9
+(06/26/2025 10:06:45PM)	Core: 1	PRINT: Hello world from screen_10!
+(06/26/2025 10:06:45PM)	Core: 1	SUBTRACT: z = 9 - 36
+(06/26/2025 10:06:45PM)	Core: 3	PRINT: Hello world from screen_10!
+(06/26/2025 10:06:45PM)	Core: 3	SLEEP: 2 ticks remaining
+(06/26/2025 10:06:45PM)	Core: 3	SLEEP: 1 ticks remaining
+(06/26/2025 10:06:45PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 10:06:45PM)	Core: 1	PRINT: Hello world from screen_10!
+(06/26/2025 10:06:45PM)	Core: 1	FOR: Loop started (4 iterations)
+(06/26/2025 10:06:45PM)	Core: 1	ADD: k = 83 + 15
+
+Current instruction line: 10
+Lines of code: 10
+Finished!

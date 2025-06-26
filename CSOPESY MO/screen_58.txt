@@ -1,0 +1,28 @@
+Process name: screen_58
+ID: 58
+Logs:
+(06/26/2025 09:47:42PM)	Core: 2	PRINT: Hello world from screen_58!
+(06/26/2025 09:47:42PM)	Core: 2	DECLARE: z = 29
+(06/26/2025 09:47:42PM)	Core: 2	PRINT: Hello world from screen_58!
+(06/26/2025 09:47:42PM)	Core: 2	ADD: r = 73 + 80
+(06/26/2025 09:47:42PM)	Core: 2	SLEEP: 2 ticks remaining
+(06/26/2025 09:47:42PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:42PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:42PM)	Core: 2	PRINT: Hello world from screen_58!
+(06/26/2025 09:47:42PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:42PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:42PM)	Core: 2	PRINT: Hello world from screen_58!
+(06/26/2025 09:47:42PM)	Core: 2	REDECLARE: r
+(06/26/2025 09:47:42PM)	Core: 2	PRINT: Hello world from screen_58!
+(06/26/2025 09:47:42PM)	Core: 2	ADD: s = 58 + 21
+(06/26/2025 09:47:42PM)	Core: 2	REDECLARE: s
+(06/26/2025 09:47:42PM)	Core: 2	SUBTRACT: h = 37 - 0
+(06/26/2025 09:47:42PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:42PM)	Core: 2	SLEEP: 2 ticks remaining
+(06/26/2025 09:47:42PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:42PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:42PM)	Core: 2	REDECLARE: s
+
+Current instruction line: 16
+Lines of code: 16
+Finished!

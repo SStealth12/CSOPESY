@@ -1,0 +1,22 @@
+Process name: screen_07
+ID: 7
+Logs:
+(06/26/2025 10:06:45PM)	Core: 3	SUBTRACT: p = 58 - 32
+(06/26/2025 10:06:45PM)	Core: 3	FOR: Loop started (5 iterations)
+(06/26/2025 10:06:45PM)	Core: 3	SUBTRACT: o = 1 - 60
+(06/26/2025 10:06:45PM)	Core: 3	SUBTRACT: i = 93 - 21
+(06/26/2025 10:06:45PM)	Core: 3	ADD: k = 97 + 30
+(06/26/2025 10:06:45PM)	Core: 1	FOR: Loop started (3 iterations)
+(06/26/2025 10:06:45PM)	Core: 1	FOR: Loop started (4 iterations)
+(06/26/2025 10:06:45PM)	Core: 1	ADD: p = 86 + 91
+(06/26/2025 10:06:45PM)	Core: 1	FOR: Loop started (2 iterations)
+(06/26/2025 10:06:45PM)	Core: 1	PRINT: Hello world from screen_07!
+(06/26/2025 10:06:45PM)	Core: 3	ADD: h = 42 + 84
+(06/26/2025 10:06:45PM)	Core: 3	SUBTRACT: u = 73 - 32
+(06/26/2025 10:06:45PM)	Core: 3	ADD: n = 8 + 59
+(06/26/2025 10:06:45PM)	Core: 3	PRINT: Hello world from screen_07!
+(06/26/2025 10:06:45PM)	Core: 3	FOR: Loop started (2 iterations)
+
+Current instruction line: 15
+Lines of code: 15
+Finished!

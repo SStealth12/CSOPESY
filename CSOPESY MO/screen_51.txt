@@ -1,0 +1,25 @@
+Process name: screen_51
+ID: 51
+Logs:
+(06/26/2025 09:47:41PM)	Core: 0	ADD: b = 75 + 21
+(06/26/2025 09:47:41PM)	Core: 0	PRINT: Hello world from screen_51!
+(06/26/2025 09:47:41PM)	Core: 0	DECLARE: l = 51
+(06/26/2025 09:47:41PM)	Core: 0	FOR: Loop started (2 iterations)
+(06/26/2025 09:47:41PM)	Core: 0	ADD: w = 26 + 93
+(06/26/2025 09:47:41PM)	Core: 0	SLEEP: 2 ticks remaining
+(06/26/2025 09:47:41PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:41PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:41PM)	Core: 0	FOR: Loop started (4 iterations)
+(06/26/2025 09:47:41PM)	Core: 0	FOR: Loop iteration 2
+(06/26/2025 09:47:41PM)	Core: 0	FOR: Loop iteration 3
+(06/26/2025 09:47:41PM)	Core: 0	FOR: Loop iteration 4
+(06/26/2025 09:47:41PM)	Core: 0	FOR: Loop finished
+(06/26/2025 09:47:41PM)	Core: 0	DECLARE: c = 19
+(06/26/2025 09:47:41PM)	Core: 0	FOR: Loop started (5 iterations)
+(06/26/2025 09:47:41PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:41PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:42PM)	Core: 0	SUBTRACT: y = 59 - 6
+
+Current instruction line: 15
+Lines of code: 15
+Finished!

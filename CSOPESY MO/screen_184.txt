@@ -1,0 +1,26 @@
+Process name: screen_184
+ID: 184
+Logs:
+(06/26/2025 09:46:37PM)	Core: 1	PRINT: Hello world from screen_184!
+(06/26/2025 09:46:37PM)	Core: 1	SUBTRACT: d = 67 - 80
+(06/26/2025 09:46:37PM)	Core: 1	ADD: h = 59 + 26
+(06/26/2025 09:46:37PM)	Core: 1	DECLARE: o = 14
+(06/26/2025 09:46:37PM)	Core: 1	PRINT: Hello world from screen_184!
+(06/26/2025 09:46:37PM)	Core: 1	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:37PM)	Core: 1	ADD: c = 58 + 63
+(06/26/2025 09:46:37PM)	Core: 1	PRINT: Hello world from screen_184!
+(06/26/2025 09:46:37PM)	Core: 1	ADD: f = 84 + 19
+(06/26/2025 09:46:37PM)	Core: 1	PRINT: Hello world from screen_184!
+(06/26/2025 09:46:37PM)	Core: 1	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:37PM)	Core: 1	SUBTRACT: q = 20 - 40
+(06/26/2025 09:46:38PM)	Core: 1	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:38PM)	Core: 1	PRINT: Hello world from screen_184!
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	PRINT: Hello world from screen_184!
+(06/26/2025 09:46:38PM)	Core: 1	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:38PM)	Core: 1	SUBTRACT: c = 4 - 77
+
+Current instruction line: 18
+Lines of code: 18
+Finished!

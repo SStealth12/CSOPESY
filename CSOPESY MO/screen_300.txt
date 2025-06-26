@@ -1,0 +1,24 @@
+Process name: screen_300
+ID: 300
+Logs:
+(06/26/2025 09:46:48PM)	Core: 2	FOR: Loop started (2 iterations)
+(06/26/2025 09:46:48PM)	Core: 2	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:48PM)	Core: 2	SUBTRACT: d = 13 - 39
+(06/26/2025 09:46:48PM)	Core: 2	ADD: s = 82 + 80
+(06/26/2025 09:46:48PM)	Core: 2	FOR: Loop iteration 2
+(06/26/2025 09:46:48PM)	Core: 2	SUBTRACT: d = 13 - 39
+(06/26/2025 09:46:48PM)	Core: 2	ADD: s = 82 + 80
+(06/26/2025 09:46:48PM)	Core: 2	FOR: Loop iteration 3
+(06/26/2025 09:46:48PM)	Core: 2	SUBTRACT: d = 13 - 39
+(06/26/2025 09:46:48PM)	Core: 2	ADD: s = 82 + 80
+(06/26/2025 09:46:48PM)	Core: 2	FOR: Loop finished
+(06/26/2025 09:46:48PM)	Core: 2	SUBTRACT: x = 96 - 62
+(06/26/2025 09:46:48PM)	Core: 2	PRINT: Hello world from screen_300!
+(06/26/2025 09:46:48PM)	Core: 2	FOR: Loop iteration 2
+(06/26/2025 09:46:48PM)	Core: 2	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:48PM)	Core: 2	SUBTRACT: d = 13 - 39
+(06/26/2025 09:46:48PM)	Core: 2	ADD: s = 82 + 80
+
+Current instruction line: 17
+Lines of code: 17
+Finished!

@@ -1,0 +1,26 @@
+Process name: screen_190
+ID: 190
+Logs:
+(06/26/2025 09:46:38PM)	Core: 0	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:38PM)	Core: 0	FOR: Loop iteration 2
+(06/26/2025 09:46:38PM)	Core: 0	FOR: Loop iteration 3
+(06/26/2025 09:46:38PM)	Core: 0	FOR: Loop finished
+(06/26/2025 09:46:38PM)	Core: 0	PRINT: Hello world from screen_190!
+(06/26/2025 09:46:38PM)	Core: 0	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:38PM)	Core: 0	SUBTRACT: m = 18 - 85
+(06/26/2025 09:46:38PM)	Core: 0	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 0	DECLARE: v = 12
+(06/26/2025 09:46:38PM)	Core: 0	FOR: Loop iteration 2
+(06/26/2025 09:46:38PM)	Core: 0	SUBTRACT: m = 18 - 85
+(06/26/2025 09:46:38PM)	Core: 0	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 0	REDECLARE: v
+(06/26/2025 09:46:38PM)	Core: 0	FOR: Loop iteration 3
+(06/26/2025 09:46:38PM)	Core: 0	SUBTRACT: m = 18 - 85
+
+Current instruction line: 15
+Lines of code: 15
+Finished!

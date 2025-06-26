@@ -1,0 +1,21 @@
+Process name: screen_65
+ID: 65
+Logs:
+(06/26/2025 09:47:42PM)	Core: 1	FOR: Loop started (3 iterations)
+(06/26/2025 09:47:42PM)	Core: 1	SLEEP: 2 ticks remaining
+(06/26/2025 09:47:42PM)	Core: 1	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:42PM)	Core: 1	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:42PM)	Core: 1	FOR: Loop started (3 iterations)
+(06/26/2025 09:47:42PM)	Core: 1	SUBTRACT: q = 35 - 75
+(06/26/2025 09:47:42PM)	Core: 1	FOR: Loop started (2 iterations)
+(06/26/2025 09:47:42PM)	Core: 1	FOR: Loop iteration 2
+(06/26/2025 09:47:42PM)	Core: 1	FOR: Loop finished
+(06/26/2025 09:47:42PM)	Core: 1	DECLARE: p = 26
+(06/26/2025 09:47:42PM)	Core: 1	SUBTRACT: o = 47 - 95
+(06/26/2025 09:47:42PM)	Core: 1	SUBTRACT: c = 88 - 39
+(06/26/2025 09:47:42PM)	Core: 1	FOR: Loop started (4 iterations)
+(06/26/2025 09:47:42PM)	Core: 1	ADD: v = 27 + 34
+
+Current instruction line: 12
+Lines of code: 12
+Finished!

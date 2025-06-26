@@ -1,0 +1,17 @@
+Process name: screen_270
+ID: 270
+Logs:
+(06/26/2025 09:46:45PM)	Core: 2	PRINT: Hello world from screen_270!
+(06/26/2025 09:46:45PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:45PM)	Core: 2	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:45PM)	Core: 2	DECLARE: v = 94
+(06/26/2025 09:46:45PM)	Core: 2	PRINT: Hello world from screen_270!
+(06/26/2025 09:46:45PM)	Core: 2	SUBTRACT: s = 67 - 73
+(06/26/2025 09:46:45PM)	Core: 2	SUBTRACT: l = 89 - 34
+(06/26/2025 09:46:45PM)	Core: 2	ADD: m = 41 + 65
+(06/26/2025 09:46:45PM)	Core: 2	ADD: u = 87 + 41
+(06/26/2025 09:46:45PM)	Core: 2	FOR: Loop started (4 iterations)
+
+Current instruction line: 11
+Lines of code: 11
+Finished!

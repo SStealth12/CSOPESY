@@ -129,6 +129,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="osloop.cpp" />
     <ClCompile Include="Process.cpp" />
+    <ClCompile Include="RRScheduler.cpp" />
     <ClCompile Include="Screen.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +138,7 @@
     <ClInclude Include="Marquee.h" />
     <ClInclude Include="osloop.h" />
     <ClInclude Include="Process.h" />
+    <ClInclude Include="RRScheduler.h" />
     <ClInclude Include="Scheduler.h" />
     <ClInclude Include="Screen.h" />
   </ItemGroup>

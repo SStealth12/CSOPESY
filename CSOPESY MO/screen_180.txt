@@ -1,0 +1,32 @@
+Process name: screen_180
+ID: 180
+Logs:
+(06/26/2025 09:46:37PM)	Core: 2	SUBTRACT: f = 7 - 34
+(06/26/2025 09:46:37PM)	Core: 2	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:37PM)	Core: 2	FOR: Loop iteration 2
+(06/26/2025 09:46:37PM)	Core: 2	FOR: Loop iteration 3
+(06/26/2025 09:46:37PM)	Core: 2	FOR: Loop finished
+(06/26/2025 09:46:37PM)	Core: 2	FOR: Loop started (2 iterations)
+(06/26/2025 09:46:37PM)	Core: 2	SLEEP: 4 ticks remaining
+(06/26/2025 09:46:37PM)	Core: 2	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:37PM)	Core: 2	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:37PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:37PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:37PM)	Core: 2	SUBTRACT: s = 18 - 48
+(06/26/2025 09:46:37PM)	Core: 2	SUBTRACT: w = 34 - 7
+(06/26/2025 09:46:37PM)	Core: 2	DECLARE: y = 62
+(06/26/2025 09:46:37PM)	Core: 2	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:37PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:37PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:37PM)	Core: 2	SUBTRACT: w = 70 - 93
+(06/26/2025 09:46:37PM)	Core: 2	DECLARE: i = 10
+(06/26/2025 09:46:37PM)	Core: 2	PRINT: Hello world from screen_180!
+(06/26/2025 09:46:37PM)	Core: 2	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:37PM)	Core: 2	FOR: Loop iteration 2
+(06/26/2025 09:46:37PM)	Core: 2	FOR: Loop iteration 3
+(06/26/2025 09:46:37PM)	Core: 2	FOR: Loop iteration 4
+(06/26/2025 09:46:37PM)	Core: 2	FOR: Loop finished
+
+Current instruction line: 19
+Lines of code: 19
+Finished!

@@ -330,11 +330,16 @@ void OSLoop() {
 
             // Initialize scheduler based on configuration
             if (!globalScheduler) {
+                // FCFS Scheduler
                 if (schedulingAlgorithm == "FCFS") {
                     globalScheduler = std::make_unique<FCFSScheduler>(coresUsed, delaysPerExec);
                     std::cout << "FCFS scheduler initialized\n";
                 }
-                // Add RR Scheduler here
+                // RR Scheduler here
+                else if (schedulingAlgorithm == "RR") {
+                    globalScheduler = std::make_unique<RRScheduler>(coresUsed, delaysPerExec, quantumCycles);
+                    std::cout << "RR scheduler initialized (Quantum: " << quantumCycles << ")\n";
+                }
             }
         }
         else if (command == "scheduler-start") {

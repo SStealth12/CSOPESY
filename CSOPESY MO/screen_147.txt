@@ -1,0 +1,18 @@
+Process name: screen_147
+ID: 147
+Logs:
+(06/26/2025 09:47:49PM)	Core: 2	PRINT: Hello world from screen_147!
+(06/26/2025 09:47:49PM)	Core: 2	SUBTRACT: e = 32 - 8
+(06/26/2025 09:47:49PM)	Core: 2	DECLARE: s = 99
+(06/26/2025 09:47:49PM)	Core: 2	PRINT: Hello world from screen_147!
+(06/26/2025 09:47:49PM)	Core: 2	PRINT: Hello world from screen_147!
+(06/26/2025 09:47:49PM)	Core: 2	DECLARE: g = 87
+(06/26/2025 09:47:49PM)	Core: 2	DECLARE: z = 69
+(06/26/2025 09:47:49PM)	Core: 2	PRINT: Hello world from screen_147!
+(06/26/2025 09:47:49PM)	Core: 2	PRINT: Hello world from screen_147!
+(06/26/2025 09:47:49PM)	Core: 2	SUBTRACT: l = 28 - 58
+(06/26/2025 09:47:49PM)	Core: 2	PRINT: Hello world from screen_147!
+
+Current instruction line: 11
+Lines of code: 11
+Finished!

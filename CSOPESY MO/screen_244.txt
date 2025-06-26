@@ -1,0 +1,22 @@
+Process name: screen_244
+ID: 244
+Logs:
+(06/26/2025 09:46:43PM)	Core: 3	DECLARE: k = 84
+(06/26/2025 09:46:43PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:43PM)	Core: 3	PRINT: Hello world from screen_244!
+(06/26/2025 09:46:43PM)	Core: 3	FOR: Loop started (2 iterations)
+(06/26/2025 09:46:43PM)	Core: 3	SLEEP: 4 ticks remaining
+(06/26/2025 09:46:43PM)	Core: 3	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:43PM)	Core: 3	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:43PM)	Core: 3	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:43PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:43PM)	Core: 3	ADD: e = 17 + 42
+(06/26/2025 09:46:43PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:43PM)	Core: 3	PRINT: Hello world from screen_244!
+(06/26/2025 09:46:43PM)	Core: 3	SUBTRACT: a = 79 - 53
+(06/26/2025 09:46:43PM)	Core: 3	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:43PM)	Core: 3	PRINT: Hello world from screen_244!
+
+Current instruction line: 11
+Lines of code: 11
+Finished!

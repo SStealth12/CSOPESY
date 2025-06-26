@@ -1,0 +1,28 @@
+Process name: screen_95
+ID: 95
+Logs:
+(06/26/2025 09:47:45PM)	Core: 0	DECLARE: s = 9
+(06/26/2025 09:47:45PM)	Core: 0	FOR: Loop started (5 iterations)
+(06/26/2025 09:47:45PM)	Core: 0	FOR: Loop started (3 iterations)
+(06/26/2025 09:47:45PM)	Core: 0	SUBTRACT: a = 81 - 64
+(06/26/2025 09:47:45PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:45PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:45PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:45PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:45PM)	Core: 0	SUBTRACT: w = 45 - 96
+(06/26/2025 09:47:45PM)	Core: 0	SLEEP: 4 ticks remaining
+(06/26/2025 09:47:45PM)	Core: 0	SLEEP: 3 ticks remaining
+(06/26/2025 09:47:45PM)	Core: 0	SLEEP: 2 ticks remaining
+(06/26/2025 09:47:45PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:45PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:45PM)	Core: 0	SLEEP: 2 ticks remaining
+(06/26/2025 09:47:45PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:45PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:45PM)	Core: 0	DECLARE: m = 27
+(06/26/2025 09:47:45PM)	Core: 0	PRINT: Hello world from screen_95!
+(06/26/2025 09:47:45PM)	Core: 0	DECLARE: p = 38
+(06/26/2025 09:47:45PM)	Core: 0	DECLARE: i = 40
+
+Current instruction line: 14
+Lines of code: 14
+Finished!

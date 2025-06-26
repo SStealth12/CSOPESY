@@ -1,0 +1,27 @@
+Process name: screen_306
+ID: 306
+Logs:
+(06/26/2025 09:46:48PM)	Core: 3	SUBTRACT: p = 48 - 74
+(06/26/2025 09:46:48PM)	Core: 3	SLEEP: 4 ticks remaining
+(06/26/2025 09:46:48PM)	Core: 3	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:48PM)	Core: 3	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:48PM)	Core: 3	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:48PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:48PM)	Core: 3	PRINT: Hello world from screen_306!
+(06/26/2025 09:46:48PM)	Core: 3	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:49PM)	Core: 3	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:49PM)	Core: 3	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:49PM)	Core: 3	ADD: i = 61 + 70
+(06/26/2025 09:46:49PM)	Core: 3	SUBTRACT: m = 76 - 15
+(06/26/2025 09:46:49PM)	Core: 3	FOR: Loop iteration 2
+(06/26/2025 09:46:49PM)	Core: 3	ADD: i = 61 + 70
+(06/26/2025 09:46:49PM)	Core: 3	SUBTRACT: m = 76 - 15
+(06/26/2025 09:46:49PM)	Core: 3	FOR: Loop iteration 3
+(06/26/2025 09:46:49PM)	Core: 3	ADD: i = 61 + 70
+(06/26/2025 09:46:49PM)	Core: 3	SUBTRACT: m = 76 - 15
+(06/26/2025 09:46:49PM)	Core: 3	FOR: Loop iteration 4
+(06/26/2025 09:46:49PM)	Core: 3	ADD: i = 61 + 70
+
+Current instruction line: 16
+Lines of code: 16
+Finished!

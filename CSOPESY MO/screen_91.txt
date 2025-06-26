@@ -1,0 +1,21 @@
+Process name: screen_91
+ID: 91
+Logs:
+(06/26/2025 09:47:44PM)	Core: 3	FOR: Loop started (2 iterations)
+(06/26/2025 09:47:44PM)	Core: 3	SUBTRACT: c = 37 - 13
+(06/26/2025 09:47:44PM)	Core: 3	ADD: t = 66 + 90
+(06/26/2025 09:47:44PM)	Core: 3	PRINT: Hello world from screen_91!
+(06/26/2025 09:47:44PM)	Core: 3	FOR: Loop iteration 2
+(06/26/2025 09:47:44PM)	Core: 3	SUBTRACT: c = 37 - 13
+(06/26/2025 09:47:45PM)	Core: 3	ADD: t = 66 + 90
+(06/26/2025 09:47:45PM)	Core: 3	PRINT: Hello world from screen_91!
+(06/26/2025 09:47:45PM)	Core: 3	FOR: Loop finished
+(06/26/2025 09:47:45PM)	Core: 3	PRINT: Hello world from screen_91!
+(06/26/2025 09:47:45PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:45PM)	Core: 3	ERROR: ENDLOOP without FOR
+(06/26/2025 09:47:45PM)	Core: 3	ERROR: ENDLOOP without FOR
+(06/26/2025 09:47:45PM)	Core: 3	SUBTRACT: v = 32 - 80
+
+Current instruction line: 14
+Lines of code: 14
+Finished!

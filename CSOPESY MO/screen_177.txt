@@ -1,0 +1,20 @@
+Process name: screen_177
+ID: 177
+Logs:
+(06/26/2025 09:46:37PM)	Core: 2	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:37PM)	Core: 2	SUBTRACT: r = 99 - 35
+(06/26/2025 09:46:37PM)	Core: 2	PRINT: Hello world from screen_177!
+(06/26/2025 09:46:37PM)	Core: 2	ADD: t = 57 + 4
+(06/26/2025 09:46:37PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:37PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:37PM)	Core: 2	ADD: x = 14 + 83
+(06/26/2025 09:46:37PM)	Core: 2	SUBTRACT: s = 44 - 14
+(06/26/2025 09:46:37PM)	Core: 2	PRINT: Hello world from screen_177!
+(06/26/2025 09:46:37PM)	Core: 2	ADD: j = 40 + 1
+(06/26/2025 09:46:37PM)	Core: 2	ADD: f = 88 + 93
+(06/26/2025 09:46:37PM)	Core: 2	DECLARE: z = 46
+(06/26/2025 09:46:37PM)	Core: 2	ADD: k = 88 + 3
+
+Current instruction line: 12
+Lines of code: 12
+Finished!

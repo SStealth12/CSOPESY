@@ -1,0 +1,18 @@
+Process name: screen_356
+ID: 356
+Logs:
+(06/26/2025 09:46:52PM)	Core: 2	PRINT: Hello world from screen_356!
+(06/26/2025 09:46:52PM)	Core: 2	SUBTRACT: n = 81 - 44
+(06/26/2025 09:46:52PM)	Core: 2	PRINT: Hello world from screen_356!
+(06/26/2025 09:46:52PM)	Core: 2	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:52PM)	Core: 2	FOR: Loop iteration 2
+(06/26/2025 09:46:52PM)	Core: 2	FOR: Loop iteration 3
+(06/26/2025 09:46:53PM)	Core: 2	FOR: Loop iteration 4
+(06/26/2025 09:46:53PM)	Core: 2	FOR: Loop finished
+(06/26/2025 09:46:53PM)	Core: 2	PRINT: Hello world from screen_356!
+(06/26/2025 09:46:53PM)	Core: 2	SUBTRACT: s = 81 - 0
+(06/26/2025 09:46:53PM)	Core: 2	ADD: h = 64 + 68
+(06/26/2025 09:46:53PM)	Core: 2	ERROR: ENDLOOP without FOR
+
+Current instruction line: 12
+Lines of code: 18

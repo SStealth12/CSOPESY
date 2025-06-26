@@ -1,0 +1,27 @@
+Process name: screen_123
+ID: 123
+Logs:
+(06/26/2025 09:47:47PM)	Core: 2	FOR: Loop started (4 iterations)
+(06/26/2025 09:47:47PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:47PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:47PM)	Core: 2	FOR: Loop started (2 iterations)
+(06/26/2025 09:47:47PM)	Core: 2	FOR: Loop started (5 iterations)
+(06/26/2025 09:47:47PM)	Core: 2	SUBTRACT: v = 59 - 67
+(06/26/2025 09:47:47PM)	Core: 2	ADD: q = 31 + 90
+(06/26/2025 09:47:47PM)	Core: 2	FOR: Loop iteration 2
+(06/26/2025 09:47:47PM)	Core: 2	SUBTRACT: v = 59 - 67
+(06/26/2025 09:47:47PM)	Core: 2	ADD: q = 31 + 90
+(06/26/2025 09:47:47PM)	Core: 2	FOR: Loop iteration 3
+(06/26/2025 09:47:47PM)	Core: 2	SUBTRACT: v = 59 - 67
+(06/26/2025 09:47:47PM)	Core: 2	ADD: q = 31 + 90
+(06/26/2025 09:47:47PM)	Core: 2	FOR: Loop iteration 4
+(06/26/2025 09:47:47PM)	Core: 2	SUBTRACT: v = 59 - 67
+(06/26/2025 09:47:47PM)	Core: 2	ADD: q = 31 + 90
+(06/26/2025 09:47:47PM)	Core: 2	FOR: Loop iteration 5
+(06/26/2025 09:47:47PM)	Core: 2	SUBTRACT: v = 59 - 67
+(06/26/2025 09:47:47PM)	Core: 2	ADD: q = 31 + 90
+(06/26/2025 09:47:47PM)	Core: 2	FOR: Loop finished
+
+Current instruction line: 19
+Lines of code: 19
+Finished!

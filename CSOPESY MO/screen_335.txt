@@ -1,0 +1,29 @@
+Process name: screen_335
+ID: 335
+Logs:
+(06/26/2025 09:46:51PM)	Core: 1	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 1	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 1	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 1	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 1	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:51PM)	Core: 1	DECLARE: a = 20
+(06/26/2025 09:46:51PM)	Core: 1	FOR: Loop iteration 2
+(06/26/2025 09:46:51PM)	Core: 1	REDECLARE: a
+(06/26/2025 09:46:51PM)	Core: 1	FOR: Loop iteration 3
+(06/26/2025 09:46:51PM)	Core: 1	REDECLARE: a
+(06/26/2025 09:46:51PM)	Core: 1	FOR: Loop iteration 4
+(06/26/2025 09:46:51PM)	Core: 1	REDECLARE: a
+(06/26/2025 09:46:51PM)	Core: 1	FOR: Loop finished
+(06/26/2025 09:46:51PM)	Core: 1	ERROR: ENDLOOP without FOR
+(06/26/2025 09:46:51PM)	Core: 1	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 1	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 1	PRINT: Hello world from screen_335!
+(06/26/2025 09:46:51PM)	Core: 1	PRINT: Hello world from screen_335!
+(06/26/2025 09:46:51PM)	Core: 1	PRINT: Hello world from screen_335!
+(06/26/2025 09:46:51PM)	Core: 1	ERROR: ENDLOOP without FOR
+(06/26/2025 09:46:51PM)	Core: 1	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:51PM)	Core: 1	DECLARE: c = 9
+
+Current instruction line: 18
+Lines of code: 18
+Finished!

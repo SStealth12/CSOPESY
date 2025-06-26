@@ -1,0 +1,23 @@
+Process name: screen_40
+ID: 40
+Logs:
+(06/26/2025 09:47:40PM)	Core: 3	FOR: Loop started (4 iterations)
+(06/26/2025 09:47:40PM)	Core: 3	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:40PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:40PM)	Core: 3	FOR: Loop started (3 iterations)
+(06/26/2025 09:47:40PM)	Core: 3	SUBTRACT: b = 56 - 41
+(06/26/2025 09:47:40PM)	Core: 3	SUBTRACT: k = 14 - 92
+(06/26/2025 09:47:40PM)	Core: 3	ADD: m = 36 + 82
+(06/26/2025 09:47:40PM)	Core: 3	PRINT: Hello world from screen_40!
+(06/26/2025 09:47:40PM)	Core: 3	DECLARE: a = 5
+(06/26/2025 09:47:40PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:40PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:40PM)	Core: 3	DECLARE: r = 44
+(06/26/2025 09:47:40PM)	Core: 3	FOR: Loop started (4 iterations)
+(06/26/2025 09:47:40PM)	Core: 3	SUBTRACT: y = 36 - 21
+(06/26/2025 09:47:40PM)	Core: 3	FOR: Loop started (4 iterations)
+(06/26/2025 09:47:41PM)	Core: 3	DECLARE: w = 58
+
+Current instruction line: 15
+Lines of code: 15
+Finished!

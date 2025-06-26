@@ -1,74 +1,26 @@
 Process name: screen_03
 ID: 3
 Logs:
-(06/26/2025 09:32:40PM)	Core: 2	PRINT: Hello world from screen_03!
-(06/26/2025 09:32:40PM)	Core: 2	ADD: p = 68 + 66
-(06/26/2025 09:32:40PM)	Core: 2	PRINT: Hello world from screen_03!
-(06/26/2025 09:32:40PM)	Core: 2	SUBTRACT: w = 90 - 55
-(06/26/2025 09:32:40PM)	Core: 2	SLEEP: 1 ticks remaining
-(06/26/2025 09:32:40PM)	Core: 2	SLEEP: 0 ticks remaining
-(06/26/2025 09:32:40PM)	Core: 2	PRINT: Hello world from screen_03!
-(06/26/2025 09:32:40PM)	Core: 2	PRINT: Hello world from screen_03!
-(06/26/2025 09:32:40PM)	Core: 2	ADD: b = 35 + 74
-(06/26/2025 09:32:40PM)	Core: 2	SLEEP: 4 ticks remaining
-(06/26/2025 09:32:40PM)	Core: 2	SLEEP: 3 ticks remaining
-(06/26/2025 09:32:40PM)	Core: 2	SLEEP: 2 ticks remaining
-(06/26/2025 09:32:40PM)	Core: 2	SLEEP: 1 ticks remaining
-(06/26/2025 09:32:40PM)	Core: 2	SLEEP: 0 ticks remaining
-(06/26/2025 09:32:40PM)	Core: 2	FOR: Loop started (2 iterations)
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop started (2 iterations)
-(06/26/2025 09:32:41PM)	Core: 2	PRINT: Hello world from screen_03!
-(06/26/2025 09:32:41PM)	Core: 2	PRINT: Hello world from screen_03!
-(06/26/2025 09:32:41PM)	Core: 2	REDECLARE: w
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop iteration 2
-(06/26/2025 09:32:41PM)	Core: 2	PRINT: Hello world from screen_03!
-(06/26/2025 09:32:41PM)	Core: 2	PRINT: Hello world from screen_03!
-(06/26/2025 09:32:41PM)	Core: 2	REDECLARE: w
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop finished
-(06/26/2025 09:32:41PM)	Core: 2	SLEEP: 0 ticks remaining
-(06/26/2025 09:32:41PM)	Core: 2	SLEEP: 4 ticks remaining
-(06/26/2025 09:32:41PM)	Core: 2	SLEEP: 3 ticks remaining
-(06/26/2025 09:32:41PM)	Core: 2	SLEEP: 2 ticks remaining
-(06/26/2025 09:32:41PM)	Core: 2	SLEEP: 1 ticks remaining
-(06/26/2025 09:32:41PM)	Core: 2	SLEEP: 0 ticks remaining
-(06/26/2025 09:32:41PM)	Core: 2	DECLARE: u = 68
-(06/26/2025 09:32:41PM)	Core: 2	ADD: q = 28 + 85
-(06/26/2025 09:32:41PM)	Core: 2	ADD: f = 9 + 12
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop started (3 iterations)
-(06/26/2025 09:32:41PM)	Core: 2	SLEEP: 3 ticks remaining
-(06/26/2025 09:32:41PM)	Core: 2	SLEEP: 2 ticks remaining
-(06/26/2025 09:32:41PM)	Core: 2	SLEEP: 1 ticks remaining
-(06/26/2025 09:32:41PM)	Core: 2	SLEEP: 0 ticks remaining
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop started (5 iterations)
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop iteration 2
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop iteration 3
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop iteration 4
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop iteration 5
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop finished
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop started (4 iterations)
-(06/26/2025 09:32:41PM)	Core: 2	ADD: q = 67 + 21
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop iteration 2
-(06/26/2025 09:32:41PM)	Core: 2	ADD: q = 67 + 21
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop iteration 3
-(06/26/2025 09:32:41PM)	Core: 2	ADD: q = 67 + 21
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop iteration 4
-(06/26/2025 09:32:41PM)	Core: 2	ADD: q = 67 + 21
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop finished
-(06/26/2025 09:32:41PM)	Core: 2	PRINT: Hello world from screen_03!
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop started (2 iterations)
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop started (2 iterations)
-(06/26/2025 09:32:41PM)	Core: 2	PRINT: Hello world from screen_03!
-(06/26/2025 09:32:41PM)	Core: 2	ADD: x = 8 + 47
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop iteration 2
-(06/26/2025 09:32:41PM)	Core: 2	PRINT: Hello world from screen_03!
-(06/26/2025 09:32:41PM)	Core: 2	ADD: x = 8 + 47
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop finished
-(06/26/2025 09:32:41PM)	Core: 2	PRINT: Hello world from screen_03!
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop iteration 2
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop started (2 iterations)
-(06/26/2025 09:32:41PM)	Core: 2	PRINT: Hello world from screen_03!
-(06/26/2025 09:32:41PM)	Core: 2	ADD: x = 8 + 47
-(06/26/2025 09:32:41PM)	Core: 2	FOR: Loop iteration 2
+(06/26/2025 10:06:45PM)	Core: 2	FOR: Loop started (4 iterations)
+(06/26/2025 10:06:45PM)	Core: 2	FOR: Loop iteration 2
+(06/26/2025 10:06:45PM)	Core: 2	FOR: Loop iteration 3
+(06/26/2025 10:06:45PM)	Core: 2	FOR: Loop iteration 4
+(06/26/2025 10:06:45PM)	Core: 2	FOR: Loop finished
+(06/26/2025 10:06:45PM)	Core: 2	DECLARE: w = 30
+(06/26/2025 10:06:45PM)	Core: 2	ERROR: ENDLOOP without FOR
+(06/26/2025 10:06:45PM)	Core: 2	ADD: h = 6 + 1
+(06/26/2025 10:06:45PM)	Core: 2	FOR: Loop started (2 iterations)
+(06/26/2025 10:06:45PM)	Core: 2	FOR: Loop iteration 2
+(06/26/2025 10:06:45PM)	Core: 0	FOR: Loop finished
+(06/26/2025 10:06:45PM)	Core: 0	SUBTRACT: p = 14 - 40
+(06/26/2025 10:06:45PM)	Core: 0	PRINT: Hello world from screen_03!
+(06/26/2025 10:06:45PM)	Core: 0	ADD: j = 41 + 35
+(06/26/2025 10:06:45PM)	Core: 0	DECLARE: k = 65
+(06/26/2025 10:06:45PM)	Core: 3	SUBTRACT: d = 59 - 88
+(06/26/2025 10:06:45PM)	Core: 3	DECLARE: u = 59
+(06/26/2025 10:06:45PM)	Core: 3	SUBTRACT: c = 96 - 74
+(06/26/2025 10:06:45PM)	Core: 3	DECLARE: r = 73
 
-Current instruction line: 56
-Lines of code: 1328
+Current instruction line: 19
+Lines of code: 19
+Finished!

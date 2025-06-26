@@ -1,0 +1,40 @@
+Process name: screen_340
+ID: 340
+Logs:
+(06/26/2025 09:46:51PM)	Core: 3	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 3	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 3	PRINT: Hello world from screen_340!
+(06/26/2025 09:46:51PM)	Core: 3	FOR: Loop started (2 iterations)
+(06/26/2025 09:46:51PM)	Core: 3	PRINT: Hello world from screen_340!
+(06/26/2025 09:46:51PM)	Core: 3	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:51PM)	Core: 3	PRINT: Hello world from screen_340!
+(06/26/2025 09:46:51PM)	Core: 3	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:51PM)	Core: 3	FOR: Loop started (2 iterations)
+(06/26/2025 09:46:51PM)	Core: 3	ADD: d = 26 + 38
+(06/26/2025 09:46:51PM)	Core: 3	FOR: Loop started (2 iterations)
+(06/26/2025 09:46:51PM)	Core: 3	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 3	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 3	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 3	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 3	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 3	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 3	FOR: Loop iteration 2
+(06/26/2025 09:46:51PM)	Core: 3	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 3	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 3	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:52PM)	Core: 3	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:52PM)	Core: 3	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:52PM)	Core: 3	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:52PM)	Core: 3	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:52PM)	Core: 3	FOR: Loop finished
+(06/26/2025 09:46:52PM)	Core: 3	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:52PM)	Core: 3	ADD: t = 29 + 63
+(06/26/2025 09:46:52PM)	Core: 3	FOR: Loop iteration 2
+
+Current instruction line: 19
+Lines of code: 19
+Finished!

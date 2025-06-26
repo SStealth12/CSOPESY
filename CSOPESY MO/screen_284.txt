@@ -1,0 +1,28 @@
+Process name: screen_284
+ID: 284
+Logs:
+(06/26/2025 09:46:46PM)	Core: 0	FOR: Loop started (2 iterations)
+(06/26/2025 09:46:46PM)	Core: 0	PRINT: Hello world from screen_284!
+(06/26/2025 09:46:46PM)	Core: 0	ADD: b = 47 + 27
+(06/26/2025 09:46:46PM)	Core: 0	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:46PM)	Core: 0	DECLARE: a = 8
+(06/26/2025 09:46:46PM)	Core: 0	FOR: Loop started (2 iterations)
+(06/26/2025 09:46:46PM)	Core: 0	PRINT: Hello world from screen_284!
+(06/26/2025 09:46:46PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:46PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:46PM)	Core: 0	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:46PM)	Core: 0	DECLARE: n = 37
+(06/26/2025 09:46:47PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:47PM)	Core: 0	ADD: y = 45 + 91
+(06/26/2025 09:46:47PM)	Core: 0	FOR: Loop iteration 2
+(06/26/2025 09:46:47PM)	Core: 0	REDECLARE: n
+(06/26/2025 09:46:47PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:47PM)	Core: 0	ADD: y = 45 + 91
+(06/26/2025 09:46:47PM)	Core: 0	FOR: Loop iteration 3
+(06/26/2025 09:46:47PM)	Core: 0	REDECLARE: n
+(06/26/2025 09:46:47PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:47PM)	Core: 0	ADD: y = 45 + 91
+
+Current instruction line: 20
+Lines of code: 20
+Finished!

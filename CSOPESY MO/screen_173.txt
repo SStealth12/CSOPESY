@@ -1,0 +1,22 @@
+Process name: screen_173
+ID: 173
+Logs:
+(06/26/2025 09:46:36PM)	Core: 2	PRINT: Hello world from screen_173!
+(06/26/2025 09:46:36PM)	Core: 2	DECLARE: c = 4
+(06/26/2025 09:46:36PM)	Core: 2	ADD: v = 91 + 94
+(06/26/2025 09:46:37PM)	Core: 2	PRINT: Hello world from screen_173!
+(06/26/2025 09:46:37PM)	Core: 2	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:37PM)	Core: 2	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:37PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:37PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:37PM)	Core: 2	ADD: f = 55 + 79
+(06/26/2025 09:46:37PM)	Core: 2	PRINT: Hello world from screen_173!
+(06/26/2025 09:46:37PM)	Core: 2	PRINT: Hello world from screen_173!
+(06/26/2025 09:46:37PM)	Core: 2	ADD: c = 77 + 9
+(06/26/2025 09:46:37PM)	Core: 2	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:37PM)	Core: 2	SUBTRACT: d = 79 - 52
+(06/26/2025 09:46:37PM)	Core: 2	PRINT: Hello world from screen_173!
+
+Current instruction line: 12
+Lines of code: 12
+Finished!

@@ -1,0 +1,26 @@
+Process name: screen_117
+ID: 117
+Logs:
+(06/26/2025 09:47:47PM)	Core: 1	PRINT: Hello world from screen_117!
+(06/26/2025 09:47:47PM)	Core: 1	PRINT: Hello world from screen_117!
+(06/26/2025 09:47:47PM)	Core: 1	SUBTRACT: m = 40 - 17
+(06/26/2025 09:47:47PM)	Core: 1	ADD: j = 66 + 73
+(06/26/2025 09:47:47PM)	Core: 1	PRINT: Hello world from screen_117!
+(06/26/2025 09:47:47PM)	Core: 1	PRINT: Hello world from screen_117!
+(06/26/2025 09:47:47PM)	Core: 1	SLEEP: 2 ticks remaining
+(06/26/2025 09:47:47PM)	Core: 1	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:47PM)	Core: 1	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:47PM)	Core: 1	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:47PM)	Core: 1	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:47PM)	Core: 1	ADD: v = 38 + 3
+(06/26/2025 09:47:47PM)	Core: 1	PRINT: Hello world from screen_117!
+(06/26/2025 09:47:47PM)	Core: 1	PRINT: Hello world from screen_117!
+(06/26/2025 09:47:47PM)	Core: 1	SLEEP: 3 ticks remaining
+(06/26/2025 09:47:47PM)	Core: 1	SLEEP: 2 ticks remaining
+(06/26/2025 09:47:47PM)	Core: 1	SLEEP: 1 ticks remaining
+(06/26/2025 09:47:47PM)	Core: 1	SLEEP: 0 ticks remaining
+(06/26/2025 09:47:47PM)	Core: 1	PRINT: Hello world from screen_117!
+
+Current instruction line: 13
+Lines of code: 13
+Finished!

@@ -1,0 +1,29 @@
+Process name: screen_251
+ID: 251
+Logs:
+(06/26/2025 09:46:44PM)	Core: 1	PRINT: Hello world from screen_251!
+(06/26/2025 09:46:44PM)	Core: 1	DECLARE: d = 79
+(06/26/2025 09:46:44PM)	Core: 1	PRINT: Hello world from screen_251!
+(06/26/2025 09:46:44PM)	Core: 1	PRINT: Hello world from screen_251!
+(06/26/2025 09:46:44PM)	Core: 1	PRINT: Hello world from screen_251!
+(06/26/2025 09:46:44PM)	Core: 1	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:44PM)	Core: 1	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:44PM)	Core: 1	DECLARE: u = 49
+(06/26/2025 09:46:44PM)	Core: 1	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:44PM)	Core: 1	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:44PM)	Core: 1	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:44PM)	Core: 1	SUBTRACT: d = 9 - 27
+(06/26/2025 09:46:44PM)	Core: 1	PRINT: Hello world from screen_251!
+(06/26/2025 09:46:44PM)	Core: 1	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:44PM)	Core: 1	PRINT: Hello world from screen_251!
+(06/26/2025 09:46:44PM)	Core: 1	SUBTRACT: v = 6 - 8
+(06/26/2025 09:46:44PM)	Core: 1	FOR: Loop iteration 2
+(06/26/2025 09:46:44PM)	Core: 1	PRINT: Hello world from screen_251!
+(06/26/2025 09:46:44PM)	Core: 1	SUBTRACT: v = 6 - 8
+(06/26/2025 09:46:44PM)	Core: 1	FOR: Loop iteration 3
+(06/26/2025 09:46:44PM)	Core: 1	PRINT: Hello world from screen_251!
+(06/26/2025 09:46:44PM)	Core: 1	SUBTRACT: v = 6 - 8
+
+Current instruction line: 20
+Lines of code: 20
+Finished!

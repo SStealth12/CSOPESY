@@ -128,7 +128,7 @@ void FCFSScheduler::printStatus() {
 	for (const auto& process : finishedProcesses) {
 		std::string timeStr = getCurrentTimeString();
 		std::cout << process->getName() << "\t(" << process->getCreateTimestamp() << ")\t"
-			<< process->getTotalBurst() << " / " << process->getTotalBurst() << "\n";
+			<< "Finished  " << process->getTotalBurst() << " / " << process->getTotalBurst() << "\n";
 	}
 	std::cout << "--------------------------------------\n";
 }

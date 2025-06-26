@@ -1,0 +1,24 @@
+Process name: screen_250
+ID: 250
+Logs:
+(06/26/2025 09:46:43PM)	Core: 2	DECLARE: v = 61
+(06/26/2025 09:46:43PM)	Core: 2	SUBTRACT: h = 20 - 10
+(06/26/2025 09:46:43PM)	Core: 2	SUBTRACT: h = 20 - 86
+(06/26/2025 09:46:43PM)	Core: 2	PRINT: Hello world from screen_250!
+(06/26/2025 09:46:44PM)	Core: 2	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:44PM)	Core: 2	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:44PM)	Core: 2	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:44PM)	Core: 2	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:44PM)	Core: 2	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:44PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:44PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:44PM)	Core: 2	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:44PM)	Core: 2	FOR: Loop iteration 2
+(06/26/2025 09:46:44PM)	Core: 2	FOR: Loop iteration 3
+(06/26/2025 09:46:44PM)	Core: 2	FOR: Loop iteration 4
+(06/26/2025 09:46:44PM)	Core: 2	FOR: Loop iteration 5
+(06/26/2025 09:46:44PM)	Core: 2	FOR: Loop finished
+
+Current instruction line: 15
+Lines of code: 15
+Finished!

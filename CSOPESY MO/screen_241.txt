@@ -1,0 +1,27 @@
+Process name: screen_241
+ID: 241
+Logs:
+(06/26/2025 09:46:43PM)	Core: 0	PRINT: Hello world from screen_241!
+(06/26/2025 09:46:43PM)	Core: 0	ADD: j = 26 + 24
+(06/26/2025 09:46:43PM)	Core: 0	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:43PM)	Core: 0	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:43PM)	Core: 0	ADD: n = 87 + 17
+(06/26/2025 09:46:43PM)	Core: 0	ADD: p = 13 + 16
+(06/26/2025 09:46:43PM)	Core: 0	FOR: Loop iteration 2
+(06/26/2025 09:46:43PM)	Core: 0	ADD: n = 87 + 17
+(06/26/2025 09:46:43PM)	Core: 0	ADD: p = 13 + 16
+(06/26/2025 09:46:43PM)	Core: 0	FOR: Loop iteration 3
+(06/26/2025 09:46:43PM)	Core: 0	ADD: n = 87 + 17
+(06/26/2025 09:46:43PM)	Core: 0	ADD: p = 13 + 16
+(06/26/2025 09:46:43PM)	Core: 0	FOR: Loop iteration 4
+(06/26/2025 09:46:43PM)	Core: 0	ADD: n = 87 + 17
+(06/26/2025 09:46:43PM)	Core: 0	ADD: p = 13 + 16
+(06/26/2025 09:46:43PM)	Core: 0	FOR: Loop finished
+(06/26/2025 09:46:43PM)	Core: 0	SUBTRACT: e = 99 - 67
+(06/26/2025 09:46:43PM)	Core: 0	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:43PM)	Core: 0	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:43PM)	Core: 0	PRINT: Hello world from screen_241!
+
+Current instruction line: 20
+Lines of code: 20
+Finished!

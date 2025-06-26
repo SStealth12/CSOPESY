@@ -1,0 +1,23 @@
+Process name: screen_302
+ID: 302
+Logs:
+(06/26/2025 09:46:48PM)	Core: 2	ADD: s = 43 + 23
+(06/26/2025 09:46:48PM)	Core: 2	SUBTRACT: f = 9 - 58
+(06/26/2025 09:46:48PM)	Core: 2	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:48PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:48PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:48PM)	Core: 2	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:48PM)	Core: 2	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:48PM)	Core: 2	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:48PM)	Core: 2	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:48PM)	Core: 2	PRINT: Hello world from screen_302!
+(06/26/2025 09:46:48PM)	Core: 2	ADD: m = 13 + 31
+(06/26/2025 09:46:48PM)	Core: 2	DECLARE: a = 55
+(06/26/2025 09:46:48PM)	Core: 2	PRINT: Hello world from screen_302!
+(06/26/2025 09:46:48PM)	Core: 2	ADD: r = 5 + 87
+(06/26/2025 09:46:48PM)	Core: 2	ADD: u = 42 + 6
+(06/26/2025 09:46:48PM)	Core: 2	SUBTRACT: q = 96 - 41
+
+Current instruction line: 11
+Lines of code: 11
+Finished!

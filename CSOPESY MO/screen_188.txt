@@ -1,0 +1,32 @@
+Process name: screen_188
+ID: 188
+Logs:
+(06/26/2025 09:46:38PM)	Core: 1	SUBTRACT: s = 57 - 10
+(06/26/2025 09:46:38PM)	Core: 1	ADD: c = 22 + 89
+(06/26/2025 09:46:38PM)	Core: 1	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:38PM)	Core: 1	PRINT: Hello world from screen_188!
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 4 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	FOR: Loop iteration 2
+(06/26/2025 09:46:38PM)	Core: 1	PRINT: Hello world from screen_188!
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 4 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	FOR: Loop iteration 3
+(06/26/2025 09:46:38PM)	Core: 1	PRINT: Hello world from screen_188!
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 4 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:38PM)	Core: 1	FOR: Loop iteration 4
+(06/26/2025 09:46:38PM)	Core: 1	PRINT: Hello world from screen_188!
+
+Current instruction line: 14
+Lines of code: 14
+Finished!

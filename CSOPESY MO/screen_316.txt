@@ -1,0 +1,24 @@
+Process name: screen_316
+ID: 316
+Logs:
+(06/26/2025 09:46:49PM)	Core: 0	DECLARE: b = 18
+(06/26/2025 09:46:49PM)	Core: 0	SUBTRACT: v = 26 - 23
+(06/26/2025 09:46:49PM)	Core: 0	DECLARE: m = 84
+(06/26/2025 09:46:49PM)	Core: 0	ADD: k = 54 + 4
+(06/26/2025 09:46:49PM)	Core: 0	SUBTRACT: i = 41 - 34
+(06/26/2025 09:46:49PM)	Core: 0	SUBTRACT: n = 93 - 4
+(06/26/2025 09:46:49PM)	Core: 0	PRINT: Hello world from screen_316!
+(06/26/2025 09:46:49PM)	Core: 0	SUBTRACT: q = 46 - 75
+(06/26/2025 09:46:49PM)	Core: 0	PRINT: Hello world from screen_316!
+(06/26/2025 09:46:49PM)	Core: 0	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 0	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:49PM)	Core: 0	PRINT: Hello world from screen_316!
+(06/26/2025 09:46:49PM)	Core: 0	PRINT: Hello world from screen_316!
+(06/26/2025 09:46:49PM)	Core: 0	PRINT: Hello world from screen_316!
+(06/26/2025 09:46:49PM)	Core: 0	ADD: t = 61 + 94
+
+Current instruction line: 14
+Lines of code: 14
+Finished!

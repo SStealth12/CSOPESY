@@ -1,0 +1,19 @@
+Process name: screen_344
+ID: 344
+Logs:
+(06/26/2025 09:46:51PM)	Core: 0	ADD: h = 26 + 0
+(06/26/2025 09:46:51PM)	Core: 0	FOR: Loop started (3 iterations)
+(06/26/2025 09:46:51PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:51PM)	Core: 0	SLEEP: 3 ticks remaining
+(06/26/2025 09:46:52PM)	Core: 0	SLEEP: 2 ticks remaining
+(06/26/2025 09:46:52PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:46:52PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:46:52PM)	Core: 0	FOR: Loop started (4 iterations)
+(06/26/2025 09:46:52PM)	Core: 0	PRINT: Hello world from screen_344!
+(06/26/2025 09:46:52PM)	Core: 0	ADD: w = 17 + 23
+(06/26/2025 09:46:52PM)	Core: 0	FOR: Loop started (5 iterations)
+(06/26/2025 09:46:52PM)	Core: 0	PRINT: Hello world from screen_344!
+
+Current instruction line: 10
+Lines of code: 10
+Finished!
