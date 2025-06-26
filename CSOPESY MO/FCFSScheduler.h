@@ -19,6 +19,7 @@ public:
 	void printStatus() override;
 	bool allProcessesFinished() override;
 	void writeFinishedProcessLogs();
+	void stop() override;
 protected:
 	void cpuWorker(int coreId) override;
 	void scheduler() override;

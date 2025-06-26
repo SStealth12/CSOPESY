@@ -28,12 +28,12 @@ void FCFSScheduler::cpuWorker(int coreId) {
 		lock.unlock();
 
 		if (process) {
-			while (process->getCurrentBurst() < process->getTotalBurst() && 
+			while (process->getCurrentBurst() < process->getTotalBurst() &&
 				cpuCores[coreId].running) {
 				process->executeInstruction(coreId);
-				std::this_thread::sleep_for(
-					std::chrono::milliseconds(delaysPerExec_)
-				);
+
+				std::this_thread::sleep_for(std::chrono::milliseconds(delaysPerExec_));
+				if (!cpuCores[coreId].running) break;
 			}
 
 			{
@@ -42,8 +42,11 @@ void FCFSScheduler::cpuWorker(int coreId) {
 				process->setStatus("FINISHED");
 			}
 
-			cpuCores[coreId].isBusy = false;
-			cpuCores[coreId].currentProcess = nullptr;
+			{
+				std::lock_guard<std::mutex> coreLock(queueMutex);
+				cpuCores[coreId].isBusy = false;
+				cpuCores[coreId].currentProcess = nullptr;
+			}
 			schedulerCV.notify_all();
 		}
 	}
@@ -68,6 +71,31 @@ void FCFSScheduler::scheduler() {
 		lock.unlock();
 		std::this_thread::sleep_for(std::chrono::milliseconds(delaysPerExec_));
 	}
+}
+
+void FCFSScheduler::stop() {
+	if (!running) return;
+
+	running = false;
+	schedulerCV.notify_all();
+
+	if (schedulerThread.joinable()) {
+		schedulerThread.join();
+	}
+
+	for (auto& core : cpuCores) {
+		core.running = false;
+	}
+
+	schedulerCV.notify_all();
+
+	for (auto& core : cpuCores) {
+		if (core.workerThread.joinable()) {
+			core.workerThread.join();
+		}
+	}
+
+	writeFinishedProcessLogs();
 }
 
 void FCFSScheduler::addProcess(std::shared_ptr<Screen> process) {

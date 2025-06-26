@@ -6,7 +6,6 @@
 std::atomic <bool> automaticThreadJoined(false);
 std::atomic<bool> automaticCreationEnabled(false);
 std::thread automaticCreationThread;
-std::mutex creationMutex;
 std::condition_variable creationCV;
 
 // Initialize process names
@@ -47,6 +46,6 @@ int batchProcessFreq = 0;
 int delaysPerExec = 0;
 
 // Mutexes
-std::mutex createdMutex;
+std::mutex creationMutex;
 std::mutex readyMutex;
 std::mutex finishedMutex;

@@ -21,7 +21,6 @@ namespace fs = std::filesystem;
 extern std::atomic<bool> automaticThreadJoined;
 extern std::atomic<bool> automaticCreationEnabled;
 extern std::thread automaticCreationThread;
-extern std::mutex creationMutex;
 extern std::condition_variable creationCV;
 
 
@@ -48,6 +47,6 @@ extern int batchProcessFreq;
 extern int delaysPerExec;
 
 // Mutexes for thread safety
-extern std::mutex createdMutex;
+extern std::mutex creationMutex;
 extern std::mutex readyMutex;
 extern std::mutex finishedMutex;

@@ -58,50 +58,73 @@ void nvidiasmi(const std::map<int, Process>& processes) {
 void automaticProcessCreation() {
     int createdCount = 0;
     int cycleCount = 0;
-	int nextId = createdProcesses.empty() ? 1 : (createdProcesses.back()->getId() + 1);
+    int nextId = 1; // Default starting ID
 
-    while (automaticCreationEnabled) {
+    // Initial ID determination (thread-safe)
+    {
+        std::lock_guard<std::mutex> guard(creationMutex);
+        if (!createdProcesses.empty()) {
+            nextId = createdProcesses.back()->getId() + 1;
+        }
+    }
+
+    while (true) {
+        // Wait with timeout at start of each cycle
+        std::unique_lock<std::mutex> lock(creationMutex);
+        bool stillOn = creationCV.wait_for(lock,
+            std::chrono::milliseconds(delaysPerExec),
+            [] { return !automaticCreationEnabled.load(); });
+
+        if (!automaticCreationEnabled) break;
+        lock.unlock();
+        
+
         cycleCount++;
 
-        
+        // Process creation block
         if (cycleCount % batchProcessFreq == 0) {
-            std::ostringstream nameStream;
+            std::string name;
+            int totalBurst = 0;
+            std::shared_ptr<Screen> screen;
 
-            nameStream << "screen_" << std::setw(2) << std::setfill('0') << nextId;
-            std::string name = nameStream.str();
-
-            int totalBurst = minInstructions + (rand() % (maxInstructions - minInstructions + 1));
-
-            auto screen = std::make_shared<Screen>(nextId, name, totalBurst);
-
+            // Generate process details (no lock needed here)
             {
-                std::lock_guard<std::mutex> guard(createdMutex);
-                createdProcesses.push_back(screen);
+                std::ostringstream nameStream;
+                nameStream << "screen_" << std::setw(2) << std::setfill('0') << nextId;
+                name = nameStream.str();
+                totalBurst = minInstructions + (rand() % (maxInstructions - minInstructions + 1));
             }
 
+            // Create and register the process (locked section)
+            {
+                std::lock_guard<std::mutex> guard(creationMutex);
+                screen = std::make_shared<Screen>(nextId, name, totalBurst);
+                createdProcesses.push_back(screen);
+                nextId++;
+            }
+
+            // Schedule the process (no lock needed)
             if (globalScheduler) {
                 screen->setStatus("READY");
                 globalScheduler->addProcess(screen);
             }
 
-            // std::cout << "Screen '" << name << "' created (Burst: " << totalBurst << ").\n";
-            nextId++;
             createdCount++;
-        }
-		// Sleep given delaysPerExec config parameter
-        std::this_thread::sleep_for(std::chrono::milliseconds(delaysPerExec));
 
-        if (isEvaluationMode && createdCount >= 10) {
-            automaticCreationEnabled = false;
-            automaticThreadJoined = true;
-            //std::cout << "Evaluation mode: Created 10 processes. Automatic creation stopped.\n";
+            // Check evaluation mode
+            if (isEvaluationMode && createdCount >= 10) {
+                automaticCreationEnabled = false;
+                automaticThreadJoined = true;
+                creationCV.notify_all(); // Wake up any waiting threads
+                break;
+            }
         }
     }
 }
 
 void screenCommand(const std::string& dashOpt, const std::string& name) {
     if (dashOpt == "-s" && !name.empty()) {
-        std::lock_guard<std::mutex> guard(createdMutex);
+        std::lock_guard<std::mutex> guard(creationMutex);
 
         // Check if screen already exists
         bool exists = false;
@@ -128,7 +151,7 @@ void screenCommand(const std::string& dashOpt, const std::string& name) {
         std::shared_ptr<Screen> targetScreen = nullptr;
 
         {
-            std::lock_guard<std::mutex> guard(createdMutex);
+            std::lock_guard<std::mutex> guard(creationMutex);
             for (const auto& screen : createdProcesses) {
                 if (screen->getName() == name) {
                     targetScreen = screen;
@@ -270,9 +293,10 @@ void exportSchedulerReport() {
 void OSLoop() {
     // Initialize local variables
     bool schedulerRunning = false;
+    bool shouldExit = false;
     printHeader();
 
-    while (true) {
+    while (!shouldExit) {
         std::string command, dashOpt, name;
         std::cout << "Enter a command: ";
         std::getline(std::cin, command);
@@ -341,10 +365,13 @@ void OSLoop() {
         }
         else if (command == "scheduler-stop") {
             if (automaticCreationEnabled) {
-                automaticCreationEnabled = false;
-                if (automaticCreationThread.joinable() && !automaticThreadJoined) {
+                {
+                    std::lock_guard<std::mutex> lk(creationMutex);
+                    automaticCreationEnabled = false;
+                }
+                creationCV.notify_all();
+                if (automaticCreationThread.joinable()) {
                     automaticCreationThread.join();
-					automaticThreadJoined = true;
                 }
                 std::cout << "Automatic process creation stopped\n";
             }
@@ -360,27 +387,35 @@ void OSLoop() {
             printHeader();
         }
         else if (command == "exit") {
-            // Stop automatic process creation
             if (automaticCreationEnabled) {
-                automaticCreationEnabled = false;
+                {
+                    std::lock_guard<std::mutex> lk(creationMutex);
+                    automaticCreationEnabled = false;
+                }
+                creationCV.notify_all();
                 if (automaticCreationThread.joinable()) {
                     automaticCreationThread.join();
                 }
+                std::cout << "Automatic process creation stopped\n";
             }
 
             // Stop scheduler if running
             if (globalScheduler && schedulerRunning) {
+                schedulerRunning = false;
                 globalScheduler->stop();
+                globalScheduler.reset();
+                std::cout << "Scheduler stopped and destroyed\n";
+
 
                 // Export logs for finished processes
                 {
                     std::lock_guard<std::mutex> guard(finishedMutex);
-                    for (const auto& process : finishedProcesses) {
+                    for (auto& process : finishedProcesses) {
                         process->exportLogs();
                     }
                 }
             }
-            exit(0);
+            shouldExit = true;
         }
         else {
             std::cout << "Unknown command.\n";

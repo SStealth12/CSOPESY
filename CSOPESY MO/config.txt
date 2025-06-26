@@ -1,6 +1,6 @@
 num-cpu=4
 quantum-cycles=5
-is-evaluation-mode=true
+is-evaluation-mode=false
 schduler=FCFS
 batch-process-freq=1
 min-ins=1000

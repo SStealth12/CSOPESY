@@ -1,122 +1,74 @@
 Process name: screen_01
 ID: 1
 Logs:
-(06/26/2025 07:00:42PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:43PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:44PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:45PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:46PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:47PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:48PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:49PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:50PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:51PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:52PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:53PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:54PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:55PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:56PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:57PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:58PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:00:59PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:00PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:01PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:02PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:03PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:04PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:05PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:06PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:07PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:08PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:09PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:10PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:11PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:12PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:13PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:14PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:15PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:16PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:17PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:18PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:19PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:20PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:21PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:22PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:23PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:24PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:25PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:26PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:27PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:28PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:29PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:30PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:31PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:32PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:33PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:34PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:35PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:36PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:37PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:38PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:39PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:40PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:41PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:42PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:43PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:44PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:45PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:46PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:47PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:48PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:49PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:50PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:51PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:52PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:53PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:54PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:55PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:56PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:57PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:58PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:01:59PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:00PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:02PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:03PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:04PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:05PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:06PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:07PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:08PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:09PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:10PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:11PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:12PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:13PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:14PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:15PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:16PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:17PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:18PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:19PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:20PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:21PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:22PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:23PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:24PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:25PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:26PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:27PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:28PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:29PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:30PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:31PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:32PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:33PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:34PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:35PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:36PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:37PM)	Core: 0	PRINT: Hello world from screen_01!
-(06/26/2025 07:02:38PM)	Core: 0	PRINT: Hello world from screen_01!
+(06/26/2025 09:32:40PM)	Core: 0	PRINT: Hello world from screen_01!
+(06/26/2025 09:32:40PM)	Core: 0	PRINT: Hello world from screen_01!
+(06/26/2025 09:32:40PM)	Core: 0	ADD: c = 27 + 89
+(06/26/2025 09:32:40PM)	Core: 0	FOR: Loop started (2 iterations)
+(06/26/2025 09:32:40PM)	Core: 0	ADD: s = 16 + 22
+(06/26/2025 09:32:40PM)	Core: 0	FOR: Loop iteration 2
+(06/26/2025 09:32:40PM)	Core: 0	ADD: s = 16 + 22
+(06/26/2025 09:32:40PM)	Core: 0	FOR: Loop finished
+(06/26/2025 09:32:40PM)	Core: 0	SUBTRACT: z = 99 - 69
+(06/26/2025 09:32:40PM)	Core: 0	FOR: Loop started (4 iterations)
+(06/26/2025 09:32:40PM)	Core: 0	FOR: Loop started (2 iterations)
+(06/26/2025 09:32:40PM)	Core: 0	FOR: Loop iteration 2
+(06/26/2025 09:32:40PM)	Core: 0	FOR: Loop finished
+(06/26/2025 09:32:40PM)	Core: 0	PRINT: Hello world from screen_01!
+(06/26/2025 09:32:40PM)	Core: 0	SUBTRACT: e = 56 - 16
+(06/26/2025 09:32:40PM)	Core: 0	DECLARE: p = 19
+(06/26/2025 09:32:40PM)	Core: 0	ADD: g = 99 + 9
+(06/26/2025 09:32:40PM)	Core: 0	FOR: Loop started (3 iterations)
+(06/26/2025 09:32:40PM)	Core: 0	FOR: Loop started (5 iterations)
+(06/26/2025 09:32:41PM)	Core: 0	FOR: Loop started (4 iterations)
+(06/26/2025 09:32:41PM)	Core: 0	ADD: x = 33 + 89
+(06/26/2025 09:32:41PM)	Core: 0	FOR: Loop started (5 iterations)
+(06/26/2025 09:32:41PM)	Core: 0	SUBTRACT: u = 5 - 76
+(06/26/2025 09:32:41PM)	Core: 0	FOR: Loop started (2 iterations)
+(06/26/2025 09:32:41PM)	Core: 0	SUBTRACT: s = 30 - 59
+(06/26/2025 09:32:41PM)	Core: 0	SUBTRACT: n = 70 - 2
+(06/26/2025 09:32:41PM)	Core: 0	ADD: x = 1 + 77
+(06/26/2025 09:32:41PM)	Core: 0	SUBTRACT: e = 44 - 93
+(06/26/2025 09:32:41PM)	Core: 0	FOR: Loop iteration 2
+(06/26/2025 09:32:41PM)	Core: 0	SUBTRACT: s = 30 - 59
+(06/26/2025 09:32:41PM)	Core: 0	SUBTRACT: n = 70 - 2
+(06/26/2025 09:32:41PM)	Core: 0	ADD: x = 1 + 77
+(06/26/2025 09:32:41PM)	Core: 0	SUBTRACT: e = 44 - 93
+(06/26/2025 09:32:41PM)	Core: 0	FOR: Loop finished
+(06/26/2025 09:32:41PM)	Core: 0	SUBTRACT: c = 66 - 18
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 2 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	PRINT: Hello world from screen_01!
+(06/26/2025 09:32:41PM)	Core: 0	ADD: x = 80 + 46
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	DECLARE: y = 7
+(06/26/2025 09:32:41PM)	Core: 0	SUBTRACT: u = 17 - 12
+(06/26/2025 09:32:41PM)	Core: 0	FOR: Loop started (4 iterations)
+(06/26/2025 09:32:41PM)	Core: 0	SUBTRACT: o = 61 - 56
+(06/26/2025 09:32:41PM)	Core: 0	FOR: Loop started (2 iterations)
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 4 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 3 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 2 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	FOR: Loop iteration 2
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 4 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 3 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 2 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	FOR: Loop finished
+(06/26/2025 09:32:41PM)	Core: 0	DECLARE: a = 64
+(06/26/2025 09:32:41PM)	Core: 0	FOR: Loop started (4 iterations)
+(06/26/2025 09:32:41PM)	Core: 0	PRINT: Hello world from screen_01!
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 0 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	PRINT: Hello world from screen_01!
+(06/26/2025 09:32:41PM)	Core: 0	FOR: Loop started (2 iterations)
+(06/26/2025 09:32:41PM)	Core: 0	ADD: j = 36 + 7
+(06/26/2025 09:32:41PM)	Core: 0	PRINT: Hello world from screen_01!
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 1 ticks remaining
+(06/26/2025 09:32:41PM)	Core: 0	SLEEP: 0 ticks remaining
 
-Current instruction line: 116
+Current instruction line: 58
 Lines of code: 1041
