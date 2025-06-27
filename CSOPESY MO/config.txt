@@ -1,8 +1,8 @@
 num-cpu=4
 quantum-cycles=5
-is-evaluation-mode=true
-scheduler=RR
+is-evaluation-mode=false
+scheduler=FCFS
 batch-process-freq=1
-min-ins=10
-max-ins=20
+min-ins=100
+max-ins=200
 delay-per-exec=1

@@ -1,7 +1,0 @@
-Process name: screen_150
-ID: 150
-Logs:
-(06/26/2025 09:47:49PM)	Core: 3	FOR: Loop started (4 iterations)
-
-Current instruction line: 1
-Lines of code: 19

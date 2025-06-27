@@ -48,26 +48,21 @@ void Screen::generateInstructions() {
 	std::stack<LoopContext> loopStack;
 
 	while (instructionsGenerated < totalBurst_) {
-		// Check if we can start a new loop
 		if (loopStack.size() < maxNesting &&
-			(totalBurst_ - instructionsGenerated) > 10 &&
+			(totalBurst_ - instructionsGenerated) >= 2 && // Ensure space for FOR+ENDLOOP
 			loopChanceDist(gen) == 0) {
 
 			LoopContext newLoop;
 			newLoop.iterations = iterDist(gen);
 			newLoop.currentIteration = 0;
-			newLoop.startIndex = instructions_.size() + 1;
+			newLoop.startIndex = instructions_.size(); // Fixed: body starts at next instruction
 
 			Instruction forInst;
 			forInst.type = Instruction::FOR;
 			forInst.args = { std::to_string(newLoop.iterations) };
 			instructions_.push_back(forInst);
 			instructionsGenerated++;
-
-			// Stop if we've reached totalBurst
-			if (instructionsGenerated >= totalBurst_) break;
-
-			loopStack.push(newLoop);
+			loopStack.push(newLoop); // Track open loop
 			continue;
 		}
 
@@ -113,17 +108,24 @@ void Screen::generateInstructions() {
 			inst.args = { std::to_string(ticks) };
 			break;
 		}
-		case 5: {  // FOR
-			inst.type = Instruction::FOR;
-			inst.args = { std::to_string(iterDist(gen)) };
+		case 5: { // FOR
+			if (loopStack.size() < maxNesting &&
+				(totalBurst_ - instructionsGenerated) >= 2) {
+				inst.type = Instruction::FOR;
+				inst.args = { std::to_string(iterDist(gen)) };
+			}
+			else {
+				inst.type = Instruction::PRINT;
+				inst.args = { "\"Hello world from " + name_ + "!\"" };
+			}
 			break;
 		}
 		case 6:  // ENDLOOP
 			if (!loopStack.empty()) {
 				inst.type = Instruction::ENDLOOP;
+				loopStack.pop(); // Close innermost loop
 			}
 			else {
-				// Fallback to PRINT if no open loop
 				inst.type = Instruction::PRINT;
 				inst.args = { "\"Hello world from " + name_ + "!\"" };
 			}
@@ -165,11 +167,7 @@ void Screen::executeInstruction(int coreId) {
 		return;
 	}
 
-	// Check if all instructions are executed
-	if (pc_ >= instructions_.size()) {
-		currentBurst_ = totalBurst_; // Mark as finished
-		return;
-	}
+	if (pc_ >= instructions_.size()) return;
 
 	Instruction& inst = instructions_[pc_];
 	std::string logMessage;
@@ -249,12 +247,11 @@ void Screen::executeInstruction(int coreId) {
 		LoopContext context;
 		context.iterations = parseValue(inst.args[0]);
 		context.currentIteration = 0;
-		context.startIndex = pc_ + 1;
-		context.loopCounterPc = pc_;
-		loopStack_.push(context);
+		context.startIndex = pc_ + 1; // Body starts next instruction
 
+		loopStack_.push(context);
 		logMessage = "FOR: Loop started (" + std::to_string(context.iterations) + " iterations)";
-		pc_++;  // Move to first instruction in loop body
+		pc_ = context.startIndex; // Jump to body
 		break;
 	} case Instruction::ENDLOOP: {
 		if (loopStack_.empty()) {
@@ -267,16 +264,14 @@ void Screen::executeInstruction(int coreId) {
 		context.currentIteration++;
 
 		if (context.currentIteration < context.iterations) {
-			// Return to start of loop body
-			pc_ = context.startIndex;
+			pc_ = context.startIndex; // Jump to start of body
 			logMessage = "FOR: Loop iteration " +
 				std::to_string(context.currentIteration + 1);
 		}
 		else {
-			// Loop finished
+			loopStack_.pop(); // Loop finished
+			pc_++; // Move to next instruction
 			logMessage = "FOR: Loop finished";
-			loopStack_.pop();
-			pc_++;  // Move to next instruction after loop
 		}
 		break;
 	}
