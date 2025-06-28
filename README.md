@@ -32,6 +32,3 @@ Notes
 -----
 
 - Make sure to extract the ZIP file before opening the `.sln` file.
-- If the console window closes too quickly, you can add the following line at the end of `main()`:
-
-  system("pause");
