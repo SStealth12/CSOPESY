@@ -369,3 +369,5 @@ FodyWeavers.xsd
 /CSOPESY MO/screen_01.txt
 /CSOPESY MO/screen_02.txt
 /CSOPESY MO/screen_03.txt
+*.txt
+/CSOPESY MO/screen_09.txt
