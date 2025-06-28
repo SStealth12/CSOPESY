@@ -451,8 +451,8 @@ void Screen::exportLogs() const {
 	file << "Process name: " << name_ << "\n";
 	file << "ID: " << id_ << "\n";
 	file << "Logs:\n";
-	for (const auto& log : logEntries_) {
-		file << log.message << "\n";
+	for (size_t i = 0; i < static_cast<size_t>(currentBurst_) && i < logEntries_.size(); ++i) {
+		file << logEntries_[i].message << "\n";
 	}
 
 	file << "\nCurrent instruction line: " << currentBurst_ << "\n";
@@ -472,8 +472,8 @@ void Screen::printLogs() const {
 		std::cout << "  No logs available\n";
 	}
 	else {
-		for (const auto& log : logEntries_) {
-			std::cout << log.message << "\n";
+		for (size_t i = 0; i < static_cast<size_t>(currentBurst_) && i < logEntries_.size(); ++i) {
+			std::cout << logEntries_[i].message << "\n";
 		}
 	}
 
