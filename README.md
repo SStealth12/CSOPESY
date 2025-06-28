@@ -15,7 +15,7 @@ How to Run This Project
 
 2. Extract the ZIP file to any folder on your computer.
 
-3. Inside the extracted folder, locate the `.sln` file (e.g., CSOPESY MO.sln) and double-click it to open in Visual Studio.
+3. Inside the extracted folder, locate the `.sln` file (CSOPESY MO.sln) and double-click it to open in Visual Studio.
 
 4. In Visual Studio, open the `main.cpp` file from the Solution Explorer panel.
 
