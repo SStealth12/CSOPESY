@@ -35,6 +35,7 @@ extern std::vector<std::shared_ptr<Screen>> finishedProcesses;
 
 // Scheduler
 extern std::unique_ptr<Scheduler> globalScheduler;
+extern std::atomic<bool> schedulerRunning;
 
 // Program configuration
 extern int coresUsed;
@@ -45,6 +46,7 @@ extern int maxInstructions;
 extern int quantumCycles;
 extern int batchProcessFreq;
 extern int delaysPerExec;
+
 
 // Mutexes for thread safety
 extern std::mutex creationMutex;

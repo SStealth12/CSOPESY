@@ -39,9 +39,10 @@ public:
 
 	struct LoopContext {
 		int iterations;
+		int depth;
 		int currentIteration;
-		size_t startIndex;  
-		size_t loopCounterPc;
+		size_t startIndex; 
+		size_t loopBodySize;
 	};
 
 	Screen(int id, const std::string& name, int totalBurst);
@@ -77,15 +78,24 @@ private:
 	std::string createTimestamp_;
 	std::vector<LogEntry> logEntries_;
 	std::vector<Instruction> instructions_;
+
 	std::map<std::string, uint16_t> variables_;
 	std::stack<LoopContext> loopStack_;
-	int sleepTicksRemaining_ = 0; // Ticks remaining for sleep instruction
+	
+	int sleepTicksRemaining_ = 0;
+	
+	bool skippingTooDeepLoop_ = false;
+	int skipDepth_ = 0;
+
 	size_t pc_ = 0; // Program counter
 
 
 	std::string getCurrentTimeStamp();
+
 	uint16_t parseValue(const std::string& str);
-	std::string formatInstruction(const Instruction& inst) const;
+
+	void generateInstructionsRecursive(int& instructionsGenerated, int depth, std::mt19937& gen);
+	Instruction generateRandomNonLoopInstruction(std::mt19937& gen);
 };
 
 #endif // SCREEN_H

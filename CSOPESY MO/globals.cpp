@@ -34,6 +34,7 @@ std::vector<std::shared_ptr<Screen>> finishedProcesses;
 
 // Scheduler
 std::unique_ptr<Scheduler> globalScheduler;
+std::atomic<bool> schedulerRunning(false);
 
 // Configs
 int coresUsed = 0;

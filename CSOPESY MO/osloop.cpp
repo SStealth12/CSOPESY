@@ -87,7 +87,6 @@ void automaticProcessCreation() {
             int totalBurst = 0;
             std::shared_ptr<Screen> screen;
 
-            // Generate process details (no lock needed here)
             {
                 std::ostringstream nameStream;
                 nameStream << "screen_" << std::setw(2) << std::setfill('0') << nextId;
@@ -122,30 +121,90 @@ void automaticProcessCreation() {
     }
 }
 
-void screenCommand(const std::string& dashOpt, const std::string& name) {
-    if (dashOpt == "-s" && !name.empty()) {
-        std::lock_guard<std::mutex> guard(creationMutex);
+void enterScreen(std::shared_ptr<Screen> screen) {
+    if (!screen) return;
 
-        // Check if screen already exists
-        bool exists = false;
-        for (const auto& screen : createdProcesses) {
-            if (screen->getName() == name) {
-                exists = true;
-                break;
+    if (screen->isFinished()) {
+        std::cout << "Process " << screen->getName() << " has finished execution.\n";
+        return;
+    }
+
+    screen->draw();
+    while (true) {
+        std::string sub;
+        std::cout << ">>";
+        std::getline(std::cin, sub);
+
+        if (sub == "exit") {
+            system(CLEAR_COMMAND);
+            printHeader();
+            break;
+        }
+        else if (sub == "process-smi") {
+            screen->printLogs();
+        }
+        else if (sub == "report-util") {
+            screen->exportLogs();
+            std::cout << "Report generated as: " << screen->getName() << ".txt\n";
+        }
+        else if (sub == "execute") {
+            if (!screen->isFinished()) {
+                screen->executeInstruction(-1);
+                std::cout << "Executed one instruction\n";
+            }
+            else {
+                std::cout << "Process has finished execution\n";
             }
         }
-        if (exists) {
-            std::cout << "Error: screen '" << name << "' already exists.\n";
-        }
         else {
-			int nextId = createdProcesses.empty() ? 1 : (createdProcesses.back()->getId() + 1);
+            std::cout << "Unknown sub-command.\n";
+        }
+    }
+}
 
+void screenCommand(const std::string& dashOpt, const std::string& name) {
+    if (dashOpt == "-s" && !name.empty()) {
+        std::shared_ptr<Screen> newScreen = nullptr;
+        {
+            std::lock_guard<std::mutex> guard(creationMutex);
+
+            // Check if screen already exists
+            bool exists = false;
+            for (const auto& screen : createdProcesses) {
+                if (screen->getName() == name) {
+                    exists = true;
+                    break;
+                }
+            }
+            if (exists) {
+                std::cout << "Error: screen '" << name << "' already exists.\n";
+                return;
+            }
+
+            int nextId = createdProcesses.empty() ? 1 : (createdProcesses.back()->getId() + 1);
             int totalBurst = minInstructions + (rand() % (maxInstructions - minInstructions + 1));
 
-			auto screen = std::make_shared<Screen>(nextId, name, totalBurst);
-			createdProcesses.push_back(screen);
-            std::cout << "Screen '" << name << "' created (Burst: " << totalBurst << ").\n";
+            newScreen = std::make_shared<Screen>(nextId, name, totalBurst);
+            createdProcesses.push_back(newScreen);
+            // std::cout << "Screen '" << name << "' created (Burst: " << totalBurst << ").\n";
         }
+
+        // Add to scheduler
+        if (globalScheduler) {
+            newScreen->setStatus("READY");
+            globalScheduler->addProcess(newScreen);
+
+            // Start scheduler if not already running
+            if (!schedulerRunning) {
+                globalScheduler->start();
+                schedulerRunning = true;
+                std::cout << "Scheduler started\n";
+            }
+        }
+
+            // Enter the new screen
+            enterScreen(newScreen);
+
     }
     else if (dashOpt == "-r" && !name.empty()) {
         std::shared_ptr<Screen> targetScreen = nullptr;
@@ -161,45 +220,13 @@ void screenCommand(const std::string& dashOpt, const std::string& name) {
         }
 
         if (!targetScreen) {
-            std::cout << "Error: no screen '" << name << "'\n";
+            std::cout << "Process " << name << " not found.\n";
         }
         else if (targetScreen->isFinished()) {
             std::cout << "Process " << name << " not found.\n";
         }
         else {
-            targetScreen->draw();
-
-            // Sub-command loop
-            while (true) {
-                std::string sub;
-                std::cout << ">>";
-                std::getline(std::cin, sub);
-
-                if (sub == "exit") {
-                    system(CLEAR_COMMAND);
-                    printHeader();
-                    break;
-                }
-                else if (sub == "process-smi") {
-                    targetScreen->printLogs();
-                }
-                else if (sub == "report-util") {
-                    targetScreen->exportLogs();
-                    std::cout << "Report generated as: " << targetScreen->getName() << ".txt\n";
-                }
-                else if (sub == "execute") {
-                    if (!targetScreen->isFinished()) {
-						targetScreen->executeInstruction(-1); // -1 for manual execution
-                        std::cout << "Executed one instuction\n";
-                    }
-                    else {
-                        std::cout << "Process has finished execution\n";
-                    }
-                }
-                else {
-                    std::cout << "Unknown sub-command.\n";
-                }
-            }
+            enterScreen(targetScreen);
         }
     }
     else if (dashOpt == "-ls") {
@@ -291,8 +318,6 @@ void exportSchedulerReport() {
 }
 
 void OSLoop() {
-    // Initialize local variables
-    bool schedulerRunning = false;
     bool shouldExit = false;
     printHeader();
 
@@ -421,7 +446,7 @@ void OSLoop() {
                 }
             }
             shouldExit = true;
-        }
+            }
         else {
             std::cout << "Unknown command.\n";
         }

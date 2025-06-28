@@ -32,37 +32,64 @@ Screen::Screen(int id, const std::string& name, int totalBurst)
 }
 
 void Screen::generateInstructions() {
-	// Use a single Mersenne Twister for all random operations
 	std::random_device rd;
 	std::mt19937 gen(rd());
-	std::uniform_int_distribution<> typeDist(0, 6);
+	instructions_.clear();
+	int instructionsGenerated = 0;
+	std::stack<LoopContext> loopStack;
+
+	// Distributions
+	std::uniform_int_distribution<> typeDist(0, 5);
 	std::uniform_int_distribution<> loopChanceDist(0, 9);
 	std::uniform_int_distribution<> iterDist(2, 5);
 	std::uniform_int_distribution<> varDist(0, 25);
 	std::uniform_int_distribution<> valueDist(0, 99);
 	std::uniform_int_distribution<> sleepDist(1, 5);
 
-	instructions_.clear();
-	int instructionsGenerated = 0;
-	const int maxNesting = 3;
-	std::stack<LoopContext> loopStack;
-
 	while (instructionsGenerated < totalBurst_) {
-		if (loopStack.size() < maxNesting &&
-			(totalBurst_ - instructionsGenerated) >= 2 && // Ensure space for FOR+ENDLOOP
+		// Handle loop closing first
+		if (!loopStack.empty() && loopStack.top().loopBodySize > 0 &&
+			instructions_.size() == loopStack.top().startIndex + loopStack.top().loopBodySize) {
+
+			LoopContext context = loopStack.top();
+			loopStack.pop();
+
+			Instruction endLoop;
+			endLoop.type = Instruction::ENDLOOP;
+			instructions_.push_back(endLoop);
+			instructionsGenerated++;
+
+			// Account for loop iterations
+			int remainingInstructions = totalBurst_ - instructionsGenerated;
+			int iterationsPossible = remainingInstructions / context.loopBodySize;
+
+			if (iterationsPossible < context.iterations) {
+				context.iterations = iterationsPossible;
+			}
+
+			// Store updated context
+			loopStack.push(context);
+			continue;
+		}
+
+		// Start new loop if possible
+		if (loopStack.size() < 3 &&
+			(totalBurst_ - instructionsGenerated) > 2 &&
 			loopChanceDist(gen) == 0) {
 
 			LoopContext newLoop;
 			newLoop.iterations = iterDist(gen);
 			newLoop.currentIteration = 0;
-			newLoop.startIndex = instructions_.size(); // Fixed: body starts at next instruction
+			newLoop.startIndex = instructions_.size();
+			newLoop.loopBodySize = 0;  // Will be calculated later
 
 			Instruction forInst;
 			forInst.type = Instruction::FOR;
 			forInst.args = { std::to_string(newLoop.iterations) };
 			instructions_.push_back(forInst);
 			instructionsGenerated++;
-			loopStack.push(newLoop); // Track open loop
+
+			loopStack.push(newLoop);
 			continue;
 		}
 
@@ -71,72 +98,65 @@ void Screen::generateInstructions() {
 		int instType = typeDist(gen);
 
 		switch (instType) {
-		case 0:  // PRINT
+			
+		case 0: {// PRINT
 			inst.type = Instruction::PRINT;
 			inst.args = { "\"Hello world from " + name_ + "!\"" };
 			break;
-		case 1: {  // DECLARE
+			}
+
+		
+		case 1: {// DECLARE
+			inst.type = Instruction::DECLARE;
 			char var = 'a' + varDist(gen);
 			uint16_t value = valueDist(gen);
-			inst.type = Instruction::DECLARE;
 			inst.args = { std::string(1, var), std::to_string(value) };
 			break;
 		}
-		case 2: {  // ADD
-			char var1 = 'a' + varDist(gen);
-			uint16_t val1 = valueDist(gen);
-			uint16_t val2 = valueDist(gen);
+
+			
+		case 2: {// ADD
 			inst.type = Instruction::ADD;
-			inst.args = { std::string(1, var1),
-						 std::to_string(val1),
-						 std::to_string(val2) };
-			break;
-		}
-		case 3: {  // SUBTRACT
 			char var1 = 'a' + varDist(gen);
-			uint16_t val1 = valueDist(gen);
-			uint16_t val2 = valueDist(gen);
-			inst.type = Instruction::SUBTRACT;
-			inst.args = { std::string(1, var1),
-						 std::to_string(val1),
-						 std::to_string(val2) };
+			char var2 = 'a' + varDist(gen);
+			char var3 = 'a' + varDist(gen);
+			inst.args = { std::string(1, var1), std::string(1, var2), std::string(1, var3) };
 			break;
-		}
-		case 4: {  // SLEEP
-			uint8_t ticks = sleepDist(gen);
+			}
+
+			
+		case 3: {// SUBTRACT
+			inst.type = Instruction::SUBTRACT;
+			char var1 = 'a' + varDist(gen);
+			char var2 = 'a' + varDist(gen);
+			char var3 = 'a' + varDist(gen);
+			inst.args = { std::string(1, var1), std::string(1, var2), std::string(1, var3) };
+			break;
+			}
+
+		
+		case 4: {// SLEEP
 			inst.type = Instruction::SLEEP;
+			uint8_t ticks = sleepDist(gen);
 			inst.args = { std::to_string(ticks) };
 			break;
 		}
-		case 5: { // FOR
-			if (loopStack.size() < maxNesting &&
-				(totalBurst_ - instructionsGenerated) >= 2) {
-				inst.type = Instruction::FOR;
-				inst.args = { std::to_string(iterDist(gen)) };
-			}
-			else {
-				inst.type = Instruction::PRINT;
-				inst.args = { "\"Hello world from " + name_ + "!\"" };
-			}
+
+		
+		default: {// PRINT (fallback)
+			inst.type = Instruction::PRINT;
+			inst.args = { "\"Hello world from " + name_ + "!\"" };
 			break;
 		}
-		case 6:  // ENDLOOP
-			if (!loopStack.empty()) {
-				inst.type = Instruction::ENDLOOP;
-				loopStack.pop(); // Close innermost loop
-			}
-			else {
-				inst.type = Instruction::PRINT;
-				inst.args = { "\"Hello world from " + name_ + "!\"" };
-			}
-			break;
 		}
 
 		instructions_.push_back(inst);
 		instructionsGenerated++;
 
-		// Stop immediately if we've reached totalBurst
-		if (instructionsGenerated >= totalBurst_) break;
+		// Update loop body size if in loop
+		if (!loopStack.empty() && loopStack.top().loopBodySize == 0) {
+			loopStack.top().loopBodySize = instructions_.size() - loopStack.top().startIndex;
+		}
 	}
 
 	// Close any remaining loops
@@ -148,16 +168,116 @@ void Screen::generateInstructions() {
 		loopStack.pop();
 	}
 
-	// Final check and warning if mismatch
-	if (instructions_.size() != static_cast<size_t>(totalBurst_)) {
-		std::cerr << "Warning: Generated " << instructions_.size()
-			<< " instructions but expected " << totalBurst_ << "\n";
-		totalBurst_ = instructions_.size();
+	// Final clamp to totalBurst
+	if (instructions_.size() > static_cast<size_t>(totalBurst_)) {
+		instructions_.resize(totalBurst_);
+	}
+	totalBurst_ = instructions_.size();
+}
+
+void Screen::generateInstructionsRecursive(int& instructionsGenerated, int depth, std::mt19937& gen) {
+	std::uniform_int_distribution<> typeDist(0, 6);
+	std::uniform_int_distribution<> loopChanceDist(0, 9);
+	std::uniform_int_distribution<> iterDist(2, 5);
+	std::uniform_int_distribution<> varDist(0, 25);
+	std::uniform_int_distribution<> valueDist(0, 99);
+	std::uniform_int_distribution<> sleepDist(1, 5);
+
+	while (instructionsGenerated < totalBurst_) {
+		// 10% chance to start a loop if we have space and depth < 3
+		if (depth < 3 && (totalBurst_ - instructionsGenerated) >= 2 &&
+			loopChanceDist(gen) == 0) {
+
+			// Generate FOR instruction
+			Instruction forInst;
+			forInst.type = Instruction::FOR;
+			int iterations = iterDist(gen);
+			forInst.args = { std::to_string(iterations) };
+			instructions_.push_back(forInst);
+			instructionsGenerated++;
+
+			// Recursively generate loop body
+			generateInstructionsRecursive(instructionsGenerated, depth + 1, gen);
+
+			// Generate ENDLOOP instruction
+			Instruction endInst;
+			endInst.type = Instruction::ENDLOOP;
+			instructions_.push_back(endInst);
+			instructionsGenerated++;
+		}
+		else {
+			// Generate non-loop instruction
+			instructions_.push_back(generateRandomNonLoopInstruction(gen));
+			instructionsGenerated++;
+		}
 	}
 }
 
+
+Screen::Instruction Screen::generateRandomNonLoopInstruction(std::mt19937& gen) {  
+	std::uniform_int_distribution<> typeDist(0, 5);  
+	std::uniform_int_distribution<> varDist(0, 25);  
+	std::uniform_int_distribution<> valueDist(0, 99);  
+	std::uniform_int_distribution<> sleepDist(1, 5);  
+
+	Screen::Instruction inst;  
+	int type = typeDist(gen);  
+
+	switch (type) {  
+		
+	case 0: {// PRINT  
+		inst.type = Screen::Instruction::PRINT;
+		inst.args = { "\"Hello world from " + name_ + "!\"" };
+		break;
+	}
+	case 1: {// DECLARE  
+		inst.type = Screen::Instruction::DECLARE;
+		char var = 'a' + varDist(gen);
+		uint16_t value = valueDist(gen);
+		inst.args = { std::string(1, var), std::to_string(value) };
+		break;
+	}
+
+	
+	case 2: {// ADD  
+		inst.type = Screen::Instruction::ADD;
+		char var1 = 'a' + varDist(gen);
+		char var2 = 'a' + varDist(gen);
+		char var3 = 'a' + varDist(gen);
+		inst.args = { std::string(1, var1), std::string(1, var2), std::string(1, var3) };
+		break;
+	}
+
+	
+	case 3: {// SUBTRACT  
+		inst.type = Screen::Instruction::SUBTRACT;
+		char var1 = 'a' + varDist(gen);
+		char var2 = 'a' + varDist(gen);
+		char var3 = 'a' + varDist(gen);
+		inst.args = { std::string(1, var1), std::string(1, var2), std::string(1, var3) };
+		break;
+	}
+
+	
+	case 4: {// SLEEP  
+		inst.type = Screen::Instruction::SLEEP;
+		uint8_t ticks = sleepDist(gen);
+		inst.args = { std::to_string(ticks) };
+		break;
+	}
+	default: {// Fallback to PRINT  
+		inst.type = Screen::Instruction::PRINT;
+		inst.args = { "\"Hello world from " + name_ + "!\"" };
+		break;
+	}
+	}  
+
+	return inst;  
+}
+
+
 void Screen::executeInstruction(int coreId) {
-	// Handle sleep ticks if currently sleeping
+	// Handle sleep ticks
 	if (sleepTicksRemaining_ > 0) {
 		sleepTicksRemaining_--;
 		std::string timeStr = getCurrentTimeStamp();
@@ -175,18 +295,6 @@ void Screen::executeInstruction(int coreId) {
 	switch (inst.type) {
 	case Instruction::PRINT: {
 		std::string msg = inst.args[0];
-
-		// Handle variable printing: "Value: $var"
-		size_t varPos = msg.find('$');
-		if (varPos != std::string::npos) {
-			std::string varName = msg.substr(varPos + 1);
-			uint16_t varValue = getVariableValue(varName);
-			msg = msg.substr(0, varPos) + std::to_string(varValue);
-		}
-		// Remove quotes if present
-		else if (msg.size() >= 2 && msg.front() == '"' && msg.back() == '"') {
-			msg = msg.substr(1, msg.size() - 2);
-		}
 
 		logMessage = "PRINT: " + msg;
 		pc_++;
@@ -244,18 +352,29 @@ void Screen::executeInstruction(int coreId) {
 		break;
 	}
 	case Instruction::FOR: {
+		int depth = static_cast<int>(loopStack_.size()) + 1;
+		if (depth > 3) {
+			logMessage = "FOR loop skipped (max depth exceeded)";
+			pc_++;
+			break;
+		}
+
 		LoopContext context;
 		context.iterations = parseValue(inst.args[0]);
-		context.currentIteration = 0;
-		context.startIndex = pc_ + 1; // Body starts next instruction
-
+		context.currentIteration = 1;  // Start at first iteration
+		context.startIndex = pc_ + 1;
+		context.depth = depth;
 		loopStack_.push(context);
-		logMessage = "FOR: Loop started (" + std::to_string(context.iterations) + " iterations)";
-		pc_ = context.startIndex; // Jump to body
+
+		logMessage = "[D" + std::to_string(depth) + "] FOR started (" +
+			std::to_string(context.iterations) + " iterations)";
+		pc_ = context.startIndex;
 		break;
-	} case Instruction::ENDLOOP: {
+	}
+
+	case Instruction::ENDLOOP: {
 		if (loopStack_.empty()) {
-			logMessage = "ERROR: ENDLOOP without FOR";
+			logMessage = "ERROR: ENDLOOP without matching FOR";
 			pc_++;
 			break;
 		}
@@ -263,15 +382,16 @@ void Screen::executeInstruction(int coreId) {
 		LoopContext& context = loopStack_.top();
 		context.currentIteration++;
 
-		if (context.currentIteration < context.iterations) {
-			pc_ = context.startIndex; // Jump to start of body
-			logMessage = "FOR: Loop iteration " +
-				std::to_string(context.currentIteration + 1);
+		if (context.currentIteration <= context.iterations) {
+			logMessage = "[D" + std::to_string(context.depth) + "] Iteration " +
+				std::to_string(context.currentIteration) + "/" +
+				std::to_string(context.iterations);
+			pc_ = context.startIndex;
 		}
 		else {
-			loopStack_.pop(); // Loop finished
-			pc_++; // Move to next instruction
-			logMessage = "FOR: Loop finished";
+			logMessage = "[D" + std::to_string(context.depth) + "] FOR completed";
+			loopStack_.pop();
+			pc_++;
 		}
 		break;
 	}

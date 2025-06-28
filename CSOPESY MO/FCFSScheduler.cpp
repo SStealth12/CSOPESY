@@ -110,9 +110,22 @@ void FCFSScheduler::printStatus() {
 	std::lock_guard<std::mutex> queueLock(queueMutex);
 	std::lock_guard<std::mutex> finishedLock(finishedMutex);
 
-	std::cout << "CPU utilization: 100%\n";
-	std::cout << "Cores used: " << cpuCores.size() << "\n";
-	std::cout << "Cores available: 0\n";
+	// Calculate busy cores
+	int busyCores = 0;
+	for (const auto& core : cpuCores) {
+		if (core.isBusy) {
+			busyCores++;
+		}
+	}
+
+	// Calculate CPU utilization
+	int utilization = (busyCores / cpuCores.size()) * 100;
+
+	// Print dynamic status
+	std::cout << "\nCPU utilization: "
+		<< utilization << "%\n";
+	std::cout << "Cores used: " << busyCores << "\n";
+	std::cout << "Cores available: " << (cpuCores.size() - busyCores) << "\n";
 	std::cout << "--------------------------------------\n";
 	std::cout << "\nRunning processes:\n";
 	for (int i = 0; i < cpuCores.size(); i++) {

@@ -38,4 +38,5 @@ void printHeader();
 void nvidiasmi(const std::map<int, Process>& processes);
 void screenCommand(const std::string& dashOpt, const std::string& name);
 void bootstrap(const std::string& configFile = "config.txt");
+void enterScreen(std::shared_ptr<Screen> screen);
 void OSLoop();
