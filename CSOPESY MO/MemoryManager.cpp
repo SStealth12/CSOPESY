@@ -35,11 +35,11 @@ MemoryManager::MemoryManager(size_t totalMem) : totalMemory(totalMem) {
     stats_.totalFrames = totalFrames_;
     stats_.freeFrames = totalFrames_;
     
-    std::cout << "[MEMORY MANAGER] Initialized with:" << std::endl;
-    std::cout << "  Total Memory: " << totalMemory << " bytes" << std::endl;
-    std::cout << "  Frame Size: " << FRAME_SIZE << " bytes" << std::endl;
-    std::cout << "  Total Frames: " << numFrames << std::endl;
-    std::cout << "  Backing Store: " << backingStoreFile << std::endl;
+    //std::cout << "[MEMORY MANAGER] Initialized with:" << std::endl;
+    //std::cout << "  Total Memory: " << totalMemory << " bytes" << std::endl;
+    //std::cout << "  Frame Size: " << FRAME_SIZE << " bytes" << std::endl;
+    //std::cout << "  Total Frames: " << numFrames << std::endl;
+    //std::cout << "  Backing Store: " << backingStoreFile << std::endl;
 }
 
 MemoryManager::MemoryManager(int maxOverallMemory, int memoryPerFrame) 
@@ -454,9 +454,9 @@ bool MemoryManager::allocateMemory(const std::string& processName, size_t size) 
 
     // Check if requested size exceeds total system memory
     if (size > totalMemory) {
-        std::cout << "[MEMORY MANAGER] Process " << processName 
-                  << " requests " << size << " bytes, but total system memory is only " 
-                  << totalMemory << " bytes. Allocation failed." << std::endl;
+        //std::cout << "[MEMORY MANAGER] Process " << processName 
+        //          << " requests " << size << " bytes, but total system memory is only " 
+        //          << totalMemory << " bytes. Allocation failed." << std::endl;
         return false; // Cannot allocate more memory than total system memory
     }
 
@@ -472,9 +472,9 @@ bool MemoryManager::allocateMemory(const std::string& processName, size_t size) 
     }
     
     if (currentUsedMemory + size > totalMemory) {
-        std::cout << "[MEMORY MANAGER] Process " << processName 
-                  << " requests " << size << " bytes, but only " 
-                  << (totalMemory - currentUsedMemory) << " bytes available. Allocation failed." << std::endl;
+        //std::cout << "[MEMORY MANAGER] Process " << processName 
+        //          << " requests " << size << " bytes, but only " 
+        //          << (totalMemory - currentUsedMemory) << " bytes available. Allocation failed." << std::endl;
         return false; // Not enough memory available
     }
 
@@ -563,9 +563,9 @@ bool MemoryManager::allocateMemory(std::shared_ptr<Screen> process, int memorySi
     
     // Check if requested size exceeds total system memory
     if (static_cast<size_t>(memorySize) > totalMemory) {
-        std::cout << "[MEMORY MANAGER] Process " << process->getName() 
-                  << " requests " << memorySize << " bytes, but total system memory is only " 
-                  << totalMemory << " bytes. Allocation failed." << std::endl;
+        //std::cout << "[MEMORY MANAGER] Process " << process->getName() 
+        //          << " requests " << memorySize << " bytes, but total system memory is only " 
+        //          << totalMemory << " bytes. Allocation failed." << std::endl;
         return false; // Cannot allocate more memory than total system memory
     }
     
@@ -583,9 +583,9 @@ bool MemoryManager::allocateMemory(std::shared_ptr<Screen> process, int memorySi
     }
     
     if (currentUsedMemory + static_cast<size_t>(memorySize) > totalMemory) {
-        std::cout << "[MEMORY MANAGER] Process " << processName 
-                  << " requests " << memorySize << " bytes, but only " 
-                  << (totalMemory - currentUsedMemory) << " bytes available. Allocation failed." << std::endl;
+        //std::cout << "[MEMORY MANAGER] Process " << processName 
+        //          << " requests " << memorySize << " bytes, but only " 
+        //          << (totalMemory - currentUsedMemory) << " bytes available. Allocation failed." << std::endl;
         return false; // Not enough memory available
     }
     
