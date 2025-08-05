@@ -137,10 +137,10 @@ void automaticProcessCreation() {
 void enterScreen(std::shared_ptr<Screen> screen) {
     if (!screen) return;
 
-    if (screen->isFinished()) {
+    /*if (screen->isFinished()) {
         std::cout << "Process " << screen->getName() << " has finished execution.\n";
         return;
-    }
+    }*/
 
     screen->draw();
     while (true) {
@@ -367,9 +367,9 @@ void screenCommand(const std::string& dashOpt, const std::string& name, const st
                       << std::hex << std::uppercase << targetScreen->getViolationAddress() 
                       << std::dec << " invalid.\n";
         }
-        else if (targetScreen->isFinished()) {
+        /*else if (targetScreen->isFinished()) {
             std::cout << "Process " << name << " not found.\n";
-        }
+        }*/
         else {
             enterScreen(targetScreen);
         }

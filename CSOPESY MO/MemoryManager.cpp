@@ -452,6 +452,14 @@ bool MemoryManager::allocateMemory(const std::string& processName, size_t size) 
         return false;
     }
 
+    // Check if requested size exceeds total system memory
+    if (size > totalMemory) {
+        std::cout << "[MEMORY MANAGER] Process " << processName 
+                  << " requests " << size << " bytes, but total system memory is only " 
+                  << totalMemory << " bytes. Allocation failed." << std::endl;
+        return false; // Cannot allocate more memory than total system memory
+    }
+
     // Check if process already has memory allocated
     if (processPages.find(processName) != processPages.end()) {
         return false; // Process already has memory
@@ -464,6 +472,9 @@ bool MemoryManager::allocateMemory(const std::string& processName, size_t size) 
     }
     
     if (currentUsedMemory + size > totalMemory) {
+        std::cout << "[MEMORY MANAGER] Process " << processName 
+                  << " requests " << size << " bytes, but only " 
+                  << (totalMemory - currentUsedMemory) << " bytes available. Allocation failed." << std::endl;
         return false; // Not enough memory available
     }
 
@@ -550,11 +561,32 @@ bool MemoryManager::allocateMemory(std::shared_ptr<Screen> process, int memorySi
         return false;
     }
     
+    // Check if requested size exceeds total system memory
+    if (static_cast<size_t>(memorySize) > totalMemory) {
+        std::cout << "[MEMORY MANAGER] Process " << process->getName() 
+                  << " requests " << memorySize << " bytes, but total system memory is only " 
+                  << totalMemory << " bytes. Allocation failed." << std::endl;
+        return false; // Cannot allocate more memory than total system memory
+    }
+    
     std::string processName = process->getName();
     
     // Check if process already has memory allocated
     if (processPages.find(processName) != processPages.end()) {
         return false; // Process already has memory
+    }
+    
+    // Check if there's enough total memory available
+    size_t currentUsedMemory = 0;
+    for (const auto& entry : processPages) {
+        currentUsedMemory += entry.second.size() * PAGE_SIZE;
+    }
+    
+    if (currentUsedMemory + static_cast<size_t>(memorySize) > totalMemory) {
+        std::cout << "[MEMORY MANAGER] Process " << processName 
+                  << " requests " << memorySize << " bytes, but only " 
+                  << (totalMemory - currentUsedMemory) << " bytes available. Allocation failed." << std::endl;
+        return false; // Not enough memory available
     }
     
     // Create virtual pages for demand paging
