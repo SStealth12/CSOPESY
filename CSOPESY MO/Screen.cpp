@@ -1,4 +1,5 @@
 #include "Screen.h"
+#include "globals.h"
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -31,6 +32,76 @@ Screen::Screen(int id, const std::string& name, int totalBurst)
 	generateInstructions();
 }
 
+void Screen::setCustomInstructions(const std::vector<std::string>& customInstructions) {
+	instructions_.clear();
+	
+	for (const std::string& instStr : customInstructions) {
+		Instruction inst;
+		std::istringstream iss(instStr);
+		std::string command;
+		iss >> command;
+		
+		// Convert command to uppercase for comparison
+		std::transform(command.begin(), command.end(), command.begin(), ::toupper);
+		
+		if (command == "PRINT") {
+			inst.type = Instruction::PRINT;
+			// Extract the argument (everything after PRINT)
+			std::string arg = instStr.substr(instStr.find("PRINT") + 5);
+			arg.erase(0, arg.find_first_not_of(" \t")); // Trim leading whitespace
+			if (arg.empty()) {
+				arg = "\"Hello world from " + name_ + "!\"";
+			}
+			inst.args = { arg };
+		}
+		else if (command == "DECLARE") {
+			inst.type = Instruction::DECLARE;
+			std::string varName, value;
+			iss >> varName >> value;
+			inst.args = { varName, value };
+		}
+		else if (command == "ADD") {
+			inst.type = Instruction::ADD;
+			std::string var1, var2, var3;
+			iss >> var1 >> var2 >> var3;
+			inst.args = { var1, var2, var3 };
+		}
+		else if (command == "SUBTRACT") {
+			inst.type = Instruction::SUBTRACT;
+			std::string var1, var2, var3;
+			iss >> var1 >> var2 >> var3;
+			inst.args = { var1, var2, var3 };
+		}
+		else if (command == "SLEEP") {
+			inst.type = Instruction::SLEEP;
+			std::string ticks;
+			iss >> ticks;
+			inst.args = { ticks };
+		}
+		else if (command == "READ") {
+			inst.type = Instruction::READ;
+			std::string varName, address;
+			iss >> varName >> address;
+			inst.args = { varName, address };
+		}
+		else if (command == "WRITE") {
+			inst.type = Instruction::WRITE;
+			std::string address, value;
+			iss >> address >> value;
+			inst.args = { address, value };
+		}
+		else {
+			// Default to PRINT for unknown commands
+			inst.type = Instruction::PRINT;
+			inst.args = { "\"Unknown command: " + instStr + "\"" };
+		}
+		
+		instructions_.push_back(inst);
+	}
+	
+	totalBurst_ = static_cast<int>(instructions_.size());
+}
+
 void Screen::generateInstructions() {
 	std::random_device rd;
 	std::mt19937 gen(rd());
@@ -38,13 +109,14 @@ void Screen::generateInstructions() {
 	int instructionsGenerated = 0;
 	std::stack<LoopContext> loopStack;
 
-	// Distributions
-	std::uniform_int_distribution<> typeDist(0, 5);
+	// Distributions - Favor READ/WRITE instructions for Test Case 4
+	std::uniform_int_distribution<> typeDist(0, 9); // Increased range
 	std::uniform_int_distribution<> loopChanceDist(0, 9);
 	std::uniform_int_distribution<> iterDist(2, 5);
 	std::uniform_int_distribution<> varDist(0, 25);
 	std::uniform_int_distribution<> valueDist(0, 99);
 	std::uniform_int_distribution<> sleepDist(1, 5);
+	std::uniform_int_distribution<> memAddrDist(0x1000, 0x2000); // Memory address range
 
 	while (instructionsGenerated < totalBurst_) {
 		// Handle loop closing first
@@ -139,6 +211,27 @@ void Screen::generateInstructions() {
 			inst.type = Instruction::SLEEP;
 			uint8_t ticks = sleepDist(gen);
 			inst.args = { std::to_string(ticks) };
+			break;
+		}
+
+		case 5:
+		case 6:
+		case 7: {// READ - Higher probability
+			inst.type = Instruction::READ;
+			char var = 'a' + varDist(gen);
+			std::stringstream ss;
+			ss << "0x" << std::hex << memAddrDist(gen);
+			inst.args = { std::string(1, var), ss.str() };
+			break;
+		}
+
+		case 8:
+		case 9: {// WRITE - Higher probability
+			inst.type = Instruction::WRITE;
+			std::stringstream ss;
+			ss << "0x" << std::hex << memAddrDist(gen);
+			uint16_t value = valueDist(gen);
+			inst.args = { ss.str(), std::to_string(value) };
 			break;
 		}
 
@@ -295,6 +388,28 @@ void Screen::executeInstruction(int coreId) {
 	switch (inst.type) {
 	case Instruction::PRINT: {
 		std::string msg = inst.args[0];
+		
+		// Handle variable concatenation in PRINT statements
+		// Look for patterns like "text" + varName
+		size_t plusPos = msg.find(" + ");
+		if (plusPos != std::string::npos) {
+			std::string beforePlus = msg.substr(0, plusPos);
+			std::string afterPlus = msg.substr(plusPos + 3);
+			
+			// Remove quotes from the string part
+			if (beforePlus.front() == '"' && beforePlus.back() == '"') {
+				beforePlus = beforePlus.substr(1, beforePlus.length() - 2);
+			}
+			
+			// Get variable value
+			uint16_t varValue = getVariableValue(trim(afterPlus));
+			msg = beforePlus + std::to_string(varValue);
+		} else {
+			// Remove quotes if present
+			if (msg.front() == '"' && msg.back() == '"') {
+				msg = msg.substr(1, msg.length() - 2);
+			}
+		}
 
 		logMessage = "PRINT: " + msg;
 		pc_++;
@@ -307,9 +422,32 @@ void Screen::executeInstruction(int coreId) {
 			logMessage = "REDECLARE: " + varName;
 		}
 		else {
+			// Check if we have space for more variables (max 32 variables in 64-byte symbol table)
+			if (variables_.size() >= 32) {
+				logMessage = "DECLARE: Symbol table full, ignoring " + varName;
+				pc_++;
+				break;
+			}
+			
 			uint16_t value = static_cast<uint16_t>(parseValue(inst.args[1]));
 			variables_[varName] = value;
-			logMessage = "DECLARE: " + varName + " = " + std::to_string(value);
+			
+			// Calculate memory address in symbol table segment (0x0000 - 0x003F)
+			size_t variableIndex = variables_.size() - 1;
+			size_t symbolTableAddress = variableIndex * 2; // 2 bytes per uint16
+			
+			// Write variable to memory through memory manager
+			if (globalMemoryManager) {
+				try {
+					globalMemoryManager->writeMemory(name_, symbolTableAddress, value);
+					logMessage = "DECLARE: " + varName + " = " + std::to_string(value) + 
+								" (stored at 0x" + std::to_string(symbolTableAddress) + ")";
+				} catch (const std::exception&) {
+					logMessage = "DECLARE: " + varName + " = " + std::to_string(value) + " (memory write failed)";
+				}
+			} else {
+				logMessage = "DECLARE: " + varName + " = " + std::to_string(value) + " (no memory manager)";
+			}
 		}
 		pc_++;
 		break;
@@ -321,8 +459,36 @@ void Screen::executeInstruction(int coreId) {
 		uint16_t val2 = parseValue(arg2);
 		uint16_t val3 = parseValue(arg3);
 		uint16_t result = val2 + val3;
+		
+		// Check if we have space for more variables (max 32 variables in 64-byte symbol table)
+		if (variables_.find(var1) == variables_.end() && variables_.size() >= 32) {
+			logMessage = "ADD: Symbol table full, ignoring " + var1;
+			pc_++;
+			break;
+		}
+		
 		variables_[var1] = result;
-		logMessage = "ADD: " + var1 + " = " + std::to_string(val2) + " + " + std::to_string(val3);
+		
+		// Write result to memory if it's a new variable or update existing one
+		if (globalMemoryManager) {
+			try {
+				// Find variable index for memory address calculation
+				size_t variableIndex = 0;
+				for (const auto& pair : variables_) {
+					if (pair.first == var1) break;
+					variableIndex++;
+				}
+				size_t symbolTableAddress = variableIndex * 2; // 2 bytes per uint16
+				
+				globalMemoryManager->writeMemory(name_, symbolTableAddress, result);
+				logMessage = "ADD: " + var1 + " = " + std::to_string(val2) + " + " + std::to_string(val3) + 
+							" (stored at 0x" + std::to_string(symbolTableAddress) + ")";
+			} catch (const std::exception&) {
+				logMessage = "ADD: " + var1 + " = " + std::to_string(val2) + " + " + std::to_string(val3) + " (memory write failed)";
+			}
+		} else {
+			logMessage = "ADD: " + var1 + " = " + std::to_string(val2) + " + " + std::to_string(val3);
+		}
 		pc_++;
 		break;
 	}
@@ -333,8 +499,36 @@ void Screen::executeInstruction(int coreId) {
 		uint16_t val2 = parseValue(arg2);
 		uint16_t val3 = parseValue(arg3);
 		uint16_t result = (val2 > val3) ? (val2 - val3) : 0;
+		
+		// Check if we have space for more variables (max 32 variables in 64-byte symbol table)
+		if (variables_.find(var1) == variables_.end() && variables_.size() >= 32) {
+			logMessage = "SUBTRACT: Symbol table full, ignoring " + var1;
+			pc_++;
+			break;
+		}
+		
 		variables_[var1] = result;
-		logMessage = "SUBTRACT: " + var1 + " = " + std::to_string(val2) + " - " + std::to_string(val3);
+		
+		// Write result to memory if it's a new variable or update existing one
+		if (globalMemoryManager) {
+			try {
+				// Find variable index for memory address calculation
+				size_t variableIndex = 0;
+				for (const auto& pair : variables_) {
+					if (pair.first == var1) break;
+					variableIndex++;
+				}
+				size_t symbolTableAddress = variableIndex * 2; // 2 bytes per uint16
+				
+				globalMemoryManager->writeMemory(name_, symbolTableAddress, result);
+				logMessage = "SUBTRACT: " + var1 + " = " + std::to_string(val2) + " - " + std::to_string(val3) + 
+							" (stored at 0x" + std::to_string(symbolTableAddress) + ")";
+			} catch (const std::exception&) {
+				logMessage = "SUBTRACT: " + var1 + " = " + std::to_string(val2) + " - " + std::to_string(val3) + " (memory write failed)";
+			}
+		} else {
+			logMessage = "SUBTRACT: " + var1 + " = " + std::to_string(val2) + " - " + std::to_string(val3);
+		}
 		pc_++;
 		break;
 	}
@@ -395,6 +589,78 @@ void Screen::executeInstruction(int coreId) {
 		}
 		break;
 	}
+
+	case Instruction::READ: {
+		std::string varName = trim(inst.args[0]);
+		std::string addrStr = trim(inst.args[1]);
+		
+		// Parse hex address
+		size_t address = 0;
+		try {
+			if (addrStr.substr(0, 2) == "0x" || addrStr.substr(0, 2) == "0X") {
+				address = static_cast<size_t>(std::stoul(addrStr, nullptr, 16));
+			} else {
+				address = static_cast<size_t>(std::stoul(addrStr));
+			}
+		} catch (const std::exception&) {
+			logMessage = "READ: Invalid address format " + addrStr;
+			pc_++;
+			break;
+		}
+		
+		// Access memory through memory manager using process name
+		if (globalMemoryManager) {
+			try {
+				uint16_t value = globalMemoryManager->readMemory(name_, address);
+				variables_[varName] = value;
+				logMessage = "READ: " + varName + " = " + std::to_string(value) + " from " + addrStr;
+			} catch (const std::exception&) {
+				logMessage = "READ: Memory access violation at " + addrStr;
+				// Set memory access violation
+				setMemoryAccessViolation(getCurrentTimeStamp(), static_cast<uint32_t>(address));
+			}
+		} else {
+			logMessage = "READ: Memory manager not available";
+		}
+		pc_++;
+		break;
+	}
+
+	case Instruction::WRITE: {
+		std::string addrStr = trim(inst.args[0]);
+		uint16_t value = static_cast<uint16_t>(parseValue(inst.args[1]));
+		
+		// Parse hex address
+		size_t address = 0;
+		try {
+			if (addrStr.substr(0, 2) == "0x" || addrStr.substr(0, 2) == "0X") {
+				address = static_cast<size_t>(std::stoul(addrStr, nullptr, 16));
+			} else {
+				address = static_cast<size_t>(std::stoul(addrStr));
+			}
+		} catch (const std::exception&) {
+			logMessage = "WRITE: Invalid address format " + addrStr;
+			pc_++;
+			break;
+		}
+		
+		// Access memory through memory manager using process name
+		if (globalMemoryManager) {
+			try {
+				globalMemoryManager->writeMemory(name_, address, value);
+				logMessage = "WRITE: " + std::to_string(value) + " to " + addrStr;
+			} catch (const std::exception&) {
+				logMessage = "WRITE: Memory access violation at " + addrStr;
+				// Set memory access violation
+				setMemoryAccessViolation(getCurrentTimeStamp(), static_cast<uint32_t>(address));
+			}
+		} else {
+			logMessage = "WRITE: Memory manager not available";
+		}
+		pc_++;
+		break;
+	}
+
 	default:
 		logMessage = "UNKNOWN INSTRUCTION";
 		break;

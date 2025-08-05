@@ -15,6 +15,7 @@
 #include <stack>
 #include <cctype>
 #include <random>
+#include <cstdint>
 
 class Screen {
 public:
@@ -32,7 +33,9 @@ public:
 			SUBTRACT,
 			SLEEP,
 			FOR,
-			ENDLOOP
+			ENDLOOP,
+			READ,
+			WRITE
 		} type;
 		std::vector<std::string> args;
 	};
@@ -53,8 +56,25 @@ public:
 	void printLogs() const;
 	void executeInstruction(int coreId);
 	void generateInstructions();
+	void setCustomInstructions(const std::vector<std::string>& customInstructions);
 	uint16_t getVariableValue(const std::string& varName);
 	void setVariableValue(const std::string& varName, uint16_t value);
+
+	// Memory management methods
+	void setMemorySize(int memorySize) { memorySize_ = memorySize; }
+	int getMemorySize() const { return memorySize_; }
+	void setMemoryValue(uint32_t address, uint16_t value) { memoryData_[address] = value; }
+	const std::map<uint32_t, uint16_t>& getMemoryData() const { return memoryData_; }
+	
+	// Memory access violation handling
+	void setMemoryAccessViolation(const std::string& timestamp, uint32_t address) {
+		hasMemoryViolation_ = true;
+		violationTimestamp_ = timestamp;
+		violationAddress_ = address;
+	}
+	bool hasMemoryAccessViolation() const { return hasMemoryViolation_; }
+	const std::string& getViolationTimestamp() const { return violationTimestamp_; }
+	uint32_t getViolationAddress() const { return violationAddress_; }
 
 	// Getters and Setters
 	const std::string& getName() const { return name_; }
@@ -88,6 +108,15 @@ private:
 	int skipDepth_ = 0;
 
 	size_t pc_ = 0; // Program counter
+
+	// Memory management members
+	int memorySize_ = 0;
+	std::map<uint32_t, uint16_t> memoryData_;
+	
+	// Memory access violation members
+	bool hasMemoryViolation_ = false;
+	std::string violationTimestamp_;
+	uint32_t violationAddress_ = 0;
 
 
 	std::string getCurrentTimeStamp();

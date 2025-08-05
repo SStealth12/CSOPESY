@@ -127,6 +127,7 @@
     <ClCompile Include="FCFSScheduler.cpp" />
     <ClCompile Include="globals.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MemoryManager.cpp" />
     <ClCompile Include="osloop.cpp" />
     <ClCompile Include="Process.cpp" />
     <ClCompile Include="RRScheduler.cpp" />
@@ -136,6 +137,7 @@
     <ClInclude Include="FCFSScheduler.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="Marquee.h" />
+    <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="osloop.h" />
     <ClInclude Include="Process.h" />
     <ClInclude Include="RRScheduler.h" />

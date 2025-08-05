@@ -98,13 +98,26 @@ void automaticProcessCreation() {
             {
                 std::lock_guard<std::mutex> guard(creationMutex);
                 screen = std::make_shared<Screen>(nextId, name, totalBurst);
+                
+                // Allocate memory for the process
+                if (globalMemoryManager) {
+                    int memorySize = minMemoryPerProcess + (rand() % (maxMemoryPerProcess - minMemoryPerProcess + 1));
+                    if (globalMemoryManager->allocateMemory(name, memorySize)) {
+                        screen->setMemorySize(memorySize);
+                        screen->setStatus("READY");
+                    } else {
+                        screen->setStatus("WAITING"); // Waiting for memory
+                    }
+                } else {
+                    screen->setStatus("READY");
+                }
+                
                 createdProcesses.push_back(screen);
                 nextId++;
             }
 
             // Schedule the process (no lock needed)
-            if (globalScheduler) {
-                screen->setStatus("READY");
+            if (globalScheduler && screen->getStatus() == "READY") {
                 globalScheduler->addProcess(screen);
             }
 
@@ -162,8 +175,122 @@ void enterScreen(std::shared_ptr<Screen> screen) {
     }
 }
 
-void screenCommand(const std::string& dashOpt, const std::string& name) {
+void screenCommandWithInstructions(const std::string& name, const std::string& memorySize, const std::string& instructions) {
+    if (name.empty()) {
+        std::cout << "Process name cannot be empty.\n";
+        return;
+    }
+    
+    // Validate instruction count (1-50)
+    std::vector<std::string> instructionList;
+    std::istringstream iss(instructions);
+    std::string instruction;
+    
+    while (std::getline(iss, instruction, ';')) {
+        // Trim whitespace
+        instruction.erase(0, instruction.find_first_not_of(" \t"));
+        instruction.erase(instruction.find_last_not_of(" \t") + 1);
+        if (!instruction.empty()) {
+            instructionList.push_back(instruction);
+        }
+    }
+    
+    if (instructionList.size() < 1 || instructionList.size() > 50) {
+        std::cout << "Invalid command. Instruction count must be between 1 and 50.\n";
+        return;
+    }
+    
+    int memSize = 0;
+    try {
+        memSize = std::stoi(memorySize);
+        // Validate memory size (power of 2, between 8 and 65536)
+        if (memSize < 8 || memSize > 65536 || (memSize & (memSize - 1)) != 0) {
+            std::cout << "Invalid memory allocation. Memory size must be a power of 2 between 8 and 65536 bytes.\n";
+            return;
+        }
+    } catch (const std::exception&) {
+        std::cout << "Invalid memory size format.\n";
+        return;
+    }
+    
+    std::shared_ptr<Screen> newScreen = nullptr;
+    {
+        std::lock_guard<std::mutex> guard(creationMutex);
+
+        // Check if screen already exists
+        bool exists = false;
+        for (const auto& screen : createdProcesses) {
+            if (screen->getName() == name) {
+                exists = true;
+                break;
+            }
+        }
+        if (exists) {
+            std::cout << "Error: screen '" << name << "' already exists.\n";
+            return;
+        }
+
+        int nextId = createdProcesses.empty() ? 1 : (createdProcesses.back()->getId() + 1);
+
+        // Create screen with custom instructions
+        newScreen = std::make_shared<Screen>(nextId, name, static_cast<int>(instructionList.size()));
+        
+        // Set custom instructions
+        newScreen->setCustomInstructions(instructionList);
+        
+        // Allocate memory for the process
+        if (globalMemoryManager) {
+            if (globalMemoryManager->allocateMemory(name, memSize)) {
+                newScreen->setMemorySize(memSize);
+                newScreen->setStatus("READY");
+                std::cout << "Process '" << name << "' created with " << memSize << " bytes of memory and " 
+                          << instructionList.size() << " custom instructions.\n";
+            } else {
+                std::cout << "Failed to allocate " << memSize << " bytes of memory for process '" << name << "'.\n";
+                return;
+            }
+        } else {
+            newScreen->setStatus("READY");
+        }
+        
+        createdProcesses.push_back(newScreen);
+    }
+
+    // Add to scheduler
+    if (globalScheduler && newScreen->getStatus() == "READY") {
+        globalScheduler->addProcess(newScreen);
+
+        // Start scheduler if not already running
+        if (!schedulerRunning) {
+            globalScheduler->start();
+            schedulerRunning = true;
+            std::cout << "Scheduler started\n";
+        }
+    }
+}
+
+void screenCommand(const std::string& dashOpt, const std::string& name, const std::string& memorySize) {
     if (dashOpt == "-s" && !name.empty()) {
+        int memSize = 0;
+        
+        // Parse memory size if provided
+        if (!memorySize.empty()) {
+            try {
+                memSize = std::stoi(memorySize);
+                // Validate memory size (power of 2, between 8 and 65536)
+                if (memSize < 8 || memSize > 65536 || (memSize & (memSize - 1)) != 0) {
+                    std::cout << "Invalid memory allocation. Memory size must be a power of 2 between 8 and 65536 bytes.\n";
+                    return;
+                }
+            } catch (const std::exception&) {
+                std::cout << "Invalid memory size format.\n";
+                return;
+            }
+        } else {
+            // Use default memory size if not specified
+            memSize = minMemoryPerProcess;
+        }
+        
         std::shared_ptr<Screen> newScreen = nullptr;
         {
             std::lock_guard<std::mutex> guard(creationMutex);
@@ -185,13 +312,26 @@ void screenCommand(const std::string& dashOpt, const std::string& name) {
             int totalBurst = minInstructions + (rand() % (maxInstructions - minInstructions + 1));
 
             newScreen = std::make_shared<Screen>(nextId, name, totalBurst);
+            
+            // Allocate memory for the process
+            if (globalMemoryManager) {
+                if (globalMemoryManager->allocateMemory(name, memSize)) {
+                    newScreen->setMemorySize(memSize);
+                    newScreen->setStatus("READY");
+                    std::cout << "Process '" << name << "' created with " << memSize << " bytes of memory.\n";
+                } else {
+                    std::cout << "Failed to allocate " << memSize << " bytes of memory for process '" << name << "'.\n";
+                    return;
+                }
+            } else {
+                newScreen->setStatus("READY");
+            }
+            
             createdProcesses.push_back(newScreen);
-            // std::cout << "Screen '" << name << "' created (Burst: " << totalBurst << ").\n";
         }
 
         // Add to scheduler
-        if (globalScheduler) {
-            newScreen->setStatus("READY");
+        if (globalScheduler && newScreen->getStatus() == "READY") {
             globalScheduler->addProcess(newScreen);
 
             // Start scheduler if not already running
@@ -202,9 +342,8 @@ void screenCommand(const std::string& dashOpt, const std::string& name) {
             }
         }
 
-            // Enter the new screen
-            enterScreen(newScreen);
-
+        // Enter the new screen
+        //enterScreen(newScreen);
     }
     else if (dashOpt == "-r" && !name.empty()) {
         std::shared_ptr<Screen> targetScreen = nullptr;
@@ -221,6 +360,12 @@ void screenCommand(const std::string& dashOpt, const std::string& name) {
 
         if (!targetScreen) {
             std::cout << "Process " << name << " not found.\n";
+        }
+        else if (targetScreen->hasMemoryAccessViolation()) {
+            std::cout << "Process " << name << " shut down due to memory access violation error that occurred at " 
+                      << targetScreen->getViolationTimestamp() << ". 0x" 
+                      << std::hex << std::uppercase << targetScreen->getViolationAddress() 
+                      << std::dec << " invalid.\n";
         }
         else if (targetScreen->isFinished()) {
             std::cout << "Process " << name << " not found.\n";
@@ -271,6 +416,10 @@ void bootstrap(const std::string& configFile) {
                 else if (key == "min-ins") minInstructions = std::stoi(value);
                 else if (key == "max-ins") maxInstructions = std::stoi(value);
                 else if (key == "delay-per-exec") delaysPerExec = std::stoi(value);
+                else if (key == "max-overall-mem") maxOverallMemory = std::stoi(value);
+                else if (key == "mem-per-frame") memoryPerFrame = std::stoi(value);
+                else if (key == "min-mem-per-proc") minMemoryPerProcess = std::stoi(value);
+                else if (key == "max-mem-per-proc") maxMemoryPerProcess = std::stoi(value);
                 else if (key == "is-evaluation-mode") {
                     if (value == "true") {
                         isEvaluationMode = true;
@@ -322,11 +471,13 @@ void OSLoop() {
     printHeader();
 
     while (!shouldExit) {
-        std::string command, dashOpt, name;
+        std::string fullCommand;
         std::cout << "Enter a command: ";
-        std::getline(std::cin, command);
-        std::istringstream iss(command);
-        iss >> command >> dashOpt >> name;
+        std::getline(std::cin, fullCommand);
+        
+        std::istringstream iss(fullCommand);
+        std::string command, dashOpt, name, memorySize;
+        iss >> command >> dashOpt >> name >> memorySize;
 
         if (command == "marquee") {
             marqueeConsole();
@@ -337,10 +488,38 @@ void OSLoop() {
             nvidiasmi(processes);
         }
         else if (command == "screen") {
-            screenCommand(dashOpt, name);
+            // Handle screen -c command specially
+            if (dashOpt == "-c") {
+                // Parse: screen -c <process_name> <memory_size> "<instructions>"
+                std::istringstream fullIss(fullCommand);
+                std::string cmd, opt, procName, memSize;
+                fullIss >> cmd >> opt >> procName >> memSize;
+                
+                // Find the start of the instruction string (enclosed in quotes)
+                size_t quoteStart = fullCommand.find('"');
+                size_t quoteEnd = fullCommand.rfind('"');
+                
+                if (quoteStart != std::string::npos && quoteEnd != std::string::npos && quoteStart < quoteEnd) {
+                    std::string instructions = fullCommand.substr(quoteStart + 1, quoteEnd - quoteStart - 1);
+                    screenCommandWithInstructions(procName, memSize, instructions);
+                } else {
+                    std::cout << "Invalid command format. Use: screen -c <process_name> <memory_size> \"<instructions>\"\n";
+                }
+            } else {
+                screenCommand(dashOpt, name, memorySize);
+            }
         }
         else if (command == "initialize") {
-            bootstrap();
+            // Check if a specific config file is mentioned
+            std::istringstream configIss(fullCommand);
+            std::string initCmd, configFile;
+            configIss >> initCmd >> configFile;
+            
+            if (configFile.empty()) {
+                configFile = "config.txt";
+            }
+            
+            bootstrap(configFile);
             std::cout << "System initialized with configuration:\n";
             std::cout << "  Number of Cores: " << coresUsed << "\n";
             std::cout << "  Scheduling Algorithm: " << schedulingAlgorithm << "\n";
@@ -350,8 +529,18 @@ void OSLoop() {
 			std::cout << "  Batch Process Frequency: " << batchProcessFreq << "\n";
 			std::cout << "  Minimum Instructions: " << minInstructions << "\n";
 			std::cout << "  Maximum Instructions: " << maxInstructions << "\n";
-			std::cout << "  Delays per Execution: " << delaysPerExec << "\n";
+            std::cout << "  Delays per Execution: " << delaysPerExec << "\n";
+            std::cout << "  Max Overall Memory: " << maxOverallMemory << " bytes\n";
+            std::cout << "  Memory per Frame: " << memoryPerFrame << " bytes\n";
+            std::cout << "  Min Memory per Process: " << minMemoryPerProcess << " bytes\n";
+            std::cout << "  Max Memory per Process: " << maxMemoryPerProcess << " bytes\n";
             std::cout << "  Evaluation Mode: " << (isEvaluationMode ? "true" : "false") << "\n";
+
+            // Initialize memory manager
+            if (!globalMemoryManager) {
+                globalMemoryManager = std::make_unique<MemoryManager>(maxOverallMemory, memoryPerFrame);
+                std::cout << "Memory manager initialized\n";
+            }
 
             // Initialize scheduler based on configuration
             if (!globalScheduler) {
@@ -407,6 +596,32 @@ void OSLoop() {
             }
             else {
                 std::cout << "Automatic creation not running\n";
+            }
+        }
+        else if (command == "process-smi") {
+            if (globalMemoryManager) {
+                globalMemoryManager->printMemoryStatus();
+                globalMemoryManager->printProcessMemoryUsage();
+            } else {
+                std::cout << "Memory manager not initialized. Run 'initialize' first.\n";
+            }
+        }
+        else if (command == "vmstat") {
+            if (globalMemoryManager) {
+                MemoryStats stats = globalMemoryManager->getStats();
+                std::cout << "=========================================================================\n";
+                std::cout << "Memory Statistics:\n";
+                std::cout << "Total Memory: " << stats.totalMemory << " bytes\n";
+                std::cout << "Used Memory: " << stats.usedMemory << " bytes\n";
+                std::cout << "Free Memory: " << stats.freeMemory << " bytes\n";
+                std::cout << "Idle CPU Ticks: " << stats.idleCpuTicks << "\n";
+                std::cout << "Active CPU Ticks: " << stats.activeCpuTicks << "\n";
+                std::cout << "Total CPU Ticks: " << stats.totalCpuTicks << "\n";
+                std::cout << "Num Paged In: " << stats.numPagedIn << "\n";
+                std::cout << "Num Paged Out: " << stats.numPagedOut << "\n";
+                std::cout << "=========================================================================\n";
+            } else {
+                std::cout << "Memory manager not initialized. Run 'initialize' first.\n";
             }
         }
         else if (command == "report-util") {

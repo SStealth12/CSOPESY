@@ -1,5 +1,6 @@
 #include "RRScheduler.h"
 #include "Screen.h"
+#include "globals.h"
 #include <iostream>
 #include <fstream>
 #include <chrono>
@@ -35,6 +36,12 @@ void RRScheduler::cpuWorker(int coreId) {
                     break;
                 }
 
+                // Trigger memory access for demand paging before instruction execution
+                if (globalMemoryManager) {
+                    uint32_t virtualAddress = process->getCurrentBurst() * 4;
+                    globalMemoryManager->accessMemory(process, virtualAddress, false);
+                }
+
                 process->executeInstruction(coreId);
                 executedInQuantum++;
 
@@ -68,6 +75,7 @@ void RRScheduler::scheduler() {
     while (running) {
         std::unique_lock<std::mutex> lock(queueMutex);
 
+        bool hasActivity = false;
         for (int i = 0; i < cpuCores.size(); i++) {
             if (!cpuCores[i].isBusy && !readyQueue.empty()) {
                 auto process = std::move(readyQueue.front());
@@ -77,10 +85,22 @@ void RRScheduler::scheduler() {
                 cpuCores[i].currentProcess = process;
                 process->setStatus("RUNNING");
                 schedulerCV.notify_all();
+                hasActivity = true;
+            }
+            
+            // Check if core is busy
+            if (cpuCores[i].isBusy) {
+                hasActivity = true;
             }
         }
 
         lock.unlock();
+        
+        // Update CPU ticks in memory manager
+        if (globalMemoryManager) {
+            globalMemoryManager->updateCpuTicks(hasActivity);
+        }
+        
         std::this_thread::sleep_for(std::chrono::milliseconds(delaysPerExec_));
     }
 }
@@ -131,7 +151,7 @@ void RRScheduler::printStatus() {
     }
 
     // Calculate CPU utilization
-    int utilization = (busyCores / cpuCores.size()) * 100;
+    int utilization = (busyCores * 100) / cpuCores.size();
 
     // Print dynamic status
     std::cout << "\nCPU utilization: "
@@ -147,6 +167,17 @@ void RRScheduler::printStatus() {
             std::cout << process->getName() << "\t(" << process->getCreateTimestamp() << ")\tCore: " << i
                 << "\t" << process->getCurrentBurst() << " / " << process->getTotalBurst() << "\n";
         }
+    }
+
+    // Ready Process Addition
+    std::cout << "\nReady processes:\n";
+    std::queue<std::shared_ptr<Screen>> tempQueue = readyQueue;
+    while (!tempQueue.empty()) {
+        const auto& process = tempQueue.front();
+        tempQueue.pop();
+        std::string timeStr = getCurrentTimeString();
+        std::cout << process->getName() << "\t(" << process->getCreateTimestamp() << ")\tReady"
+            << "\t" << process->getCurrentBurst() << " / " << process->getTotalBurst() << "\n";
     }
 
     std::cout << "\nFinished processes:\n";

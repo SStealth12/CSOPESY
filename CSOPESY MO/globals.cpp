@@ -36,6 +36,9 @@ std::vector<std::shared_ptr<Screen>> finishedProcesses;
 std::unique_ptr<Scheduler> globalScheduler;
 std::atomic<bool> schedulerRunning(false);
 
+// Memory Manager
+std::unique_ptr<MemoryManager> globalMemoryManager;
+
 // Configs
 int coresUsed = 0;
 bool isEvaluationMode = false;
@@ -45,6 +48,12 @@ int maxInstructions = 0;
 int quantumCycles = 0;
 int batchProcessFreq = 0;
 int delaysPerExec = 0;
+
+// Memory configuration
+int maxOverallMemory = 0;
+int memoryPerFrame = 0;
+int minMemoryPerProcess = 0;
+int maxMemoryPerProcess = 0;
 
 // Mutexes
 std::mutex creationMutex;

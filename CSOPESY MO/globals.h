@@ -12,6 +12,7 @@
 #include "Scheduler.h"
 #include "Screen.h"
 #include "Process.h"
+#include "MemoryManager.h"
 
 
 // File management globals
@@ -37,6 +38,9 @@ extern std::vector<std::shared_ptr<Screen>> finishedProcesses;
 extern std::unique_ptr<Scheduler> globalScheduler;
 extern std::atomic<bool> schedulerRunning;
 
+// Memory Manager
+extern std::unique_ptr<MemoryManager> globalMemoryManager;
+
 // Program configuration
 extern int coresUsed;
 extern bool isEvaluationMode;
@@ -47,6 +51,11 @@ extern int quantumCycles;
 extern int batchProcessFreq;
 extern int delaysPerExec;
 
+// Memory configuration
+extern int maxOverallMemory;
+extern int memoryPerFrame;
+extern int minMemoryPerProcess;
+extern int maxMemoryPerProcess;
 
 // Mutexes for thread safety
 extern std::mutex creationMutex;
