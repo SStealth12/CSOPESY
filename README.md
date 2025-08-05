@@ -4,7 +4,7 @@ Member Names:
 - Miguel Francis Estañol
 - Aaron Rae Nicolas
 
-C++ CSOPESY MO1 Project  
+C++ CSOPESY MO2 Project  
 Quick Start Guide
 ==================
 
