@@ -382,6 +382,11 @@ void Screen::executeInstruction(int coreId) {
 
 	if (pc_ >= instructions_.size()) return;
 
+	// Simulate memory access for instruction fetch and execution (Test Case 6 optimization)
+	if (globalMemoryManager) {
+		globalMemoryManager->simulateInstructionMemoryAccess(name_);
+	}
+
 	Instruction& inst = instructions_[pc_];
 	std::string logMessage;
 

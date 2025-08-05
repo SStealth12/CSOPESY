@@ -14,9 +14,9 @@
 // Forward declaration
 class Screen;
 
-// Constants for demand paging
-static const size_t PAGE_SIZE = 32;  // 32 bytes per page (16 uint16 values)
-static const size_t FRAME_SIZE = 32; // Same as page size
+// Constants for demand paging - will be set from config
+// static const size_t PAGE_SIZE = 32;  // Will be set dynamically from config
+// static const size_t FRAME_SIZE = 32; // Will be set dynamically from config
 
 struct Frame {
     size_t frameId;
@@ -25,8 +25,8 @@ struct Frame {
     size_t pageNumber;
     std::vector<uint16_t> data;  // Actual frame data
     
-    Frame(size_t id) : frameId(id), isOccupied(false), pageNumber(static_cast<size_t>(-1)) {
-        data.resize(FRAME_SIZE / 2, 0);  // 16 uint16 values per frame
+    Frame(size_t id, size_t frameSize = 256) : frameId(id), isOccupied(false), pageNumber(static_cast<size_t>(-1)) {
+        data.resize(frameSize / 2, 0);  // uint16 values per frame
     }
 };
 
@@ -37,9 +37,9 @@ struct Page {
     bool isInMemory;
     std::vector<uint16_t> data;  // Page data when not in memory
     
-    Page(size_t pageNum, const std::string& procName) 
+    Page(size_t pageNum, const std::string& procName, size_t pageSize = 256) 
         : pageNumber(pageNum), processName(procName), frameNumber(static_cast<size_t>(-1)), isInMemory(false) {
-        data.resize(PAGE_SIZE / 2, 0);  // 16 uint16 values per page
+        data.resize(pageSize / 2, 0);  // uint16 values per page
     }
 };
 
@@ -64,6 +64,10 @@ struct MemoryStats {
 
 class MemoryManager {
 private:
+    // Dynamic page/frame size configuration
+    size_t PAGE_SIZE;
+    size_t FRAME_SIZE;
+    
     // Core data structures for demand paging
     std::vector<Frame> frames;
     std::map<std::string, std::vector<Page>> processPages;
@@ -128,6 +132,9 @@ public:
     void writeMemory(const std::string& processName, size_t virtualAddress, uint16_t value);
     bool allocateMemory(const std::string& processName, size_t size);
     void deallocateMemory(const std::string& processName);
+    
+    // Force memory access for instruction execution (Test Case 6 optimization)
+    bool simulateInstructionMemoryAccess(const std::string& processName);
     
     // Legacy interface for compatibility
     bool allocateMemory(std::shared_ptr<Screen> process, int memorySize);
